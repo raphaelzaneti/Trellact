@@ -1,0 +1,18 @@
+.board-list{
+    margin: 0 4px;
+    margin-top: 10px;
+    width: 272px;
+    background-color: #ebecf0;
+    border-radius: 3px;
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.list-header{
+    display: inline-block;
+    position: relative;
+    margin: 0px;
+    width: 80%;
+}

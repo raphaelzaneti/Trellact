@@ -1,0 +1,9 @@
+.active-input-list{
+    margin: 0 4px;
+    margin-top: 10px;
+    width: 272px;
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    flex-direction: column;
+}
