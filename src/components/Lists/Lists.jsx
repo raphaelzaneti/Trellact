@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
-import DeleteBtn from '../Buttons/DeleteBtn'
-import NewCardBtn from '../Buttons/NewCardBtn'
 import './Lists.css'
+import {DeleteBtn, NewCardBtn} from '../index'
 
 export default props =>{
     const [listName, setListName] = useState(props.title)

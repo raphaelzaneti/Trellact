@@ -1,14 +1,12 @@
 import React, {useState, useContext, useEffect} from 'react'
 import './Card.css'
-import CardContent from './CardContent'
-import CardName from './CardName'
-import InputCard from './InputCard'
-import { CardContext } from './StoreCard'
+import {CardContent, CardName, InputCard} from '../index.js'
+import {CardContext} from './StoreCard.jsx'
 
 export default props =>{
 
     const {isInput, setInput} = useContext(CardContext)
-
+    console.log(isInput)
     useEffect(
         function activateModal(){
             const modal = document.getElementById(props.id+"active-modal") || document.getElementById(props.id+"inactive-modal")

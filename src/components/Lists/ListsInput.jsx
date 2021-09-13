@@ -1,8 +1,7 @@
 import React, {useState, useContext} from 'react'
-import NewListBtn from '../Buttons/NewListBtn'
-import Lists from '../Lists/Lists'
 import './ListsInput.css'
-import { AppContext } from '../Lists/Store'
+import { NewListBtn, Lists } from '../index'
+import {AppContext} from './Store'
 
 
 export default props =>{

@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import './Card.css'
-import CardName from './CardName'
-import {CardContext} from './StoreCard'
+import {CardName} from '../index'
+import {CardContext} from './StoreCard.jsx'
 
 export default props =>{
     

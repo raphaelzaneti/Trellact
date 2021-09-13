@@ -1,8 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react'
 import './NewListBtn.css'
-import Lists from '../Lists/Lists'
-import ListsInput from '../Lists/ListsInput'
-import { AppContext } from '../Lists/Store'
+import {Lists, ListsInput} from '../index.js'
+import {AppContext} from '../Lists/Store'
 
 
 export default props =>{
@@ -10,13 +9,14 @@ export default props =>{
     const [counter, setCounter] = useState(0)
     let listId = 'list-'+counter
 
+    const {input, updateInput} = useContext(AppContext)    
+
     function renderNewList(){
         setCounter(counter+1)
         setLists((a)=> [...a, <ListsInput id={listId} />])
         updateInput(!input)
     }
 
-    const {input, updateInput} = useContext(AppContext)    
     
     function showButton(){
         return <button 

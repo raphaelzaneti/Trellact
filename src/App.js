@@ -1,9 +1,5 @@
 import './App.css';
-import Lists from './components/Lists/Lists';
-import Board from './components/Board/Board';
-import NewListBtn from './components/Buttons/NewListBtn';
-import Store from './components/Lists/Store'
-import StoreCard from './components/Card/StoreCard';
+import {Board, NewListBtn, Lists, Store, StoreCard} from './components/';
 
 function App() {
   return (

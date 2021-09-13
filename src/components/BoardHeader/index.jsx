@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from './Logo'
+import {Logo} from '../index.js'
 import './BoardHeader.css'
 
 export default props =>{

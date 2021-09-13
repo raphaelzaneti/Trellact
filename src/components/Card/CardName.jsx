@@ -1,10 +1,8 @@
 import React, {useState, useContext} from 'react'
 import { useEffect } from 'react'
 import './CardName.css'
-import DeleteBtn from '../Buttons/DeleteBtn'
-import CardContent from './CardContent'
-import InputCard from './InputCard'
-import { CardContext } from './StoreCard'
+import {DeleteBtn, CardContent, InputCard} from '../index'
+import {CardContext} from './StoreCard.jsx'
 
 export default props =>{
     
