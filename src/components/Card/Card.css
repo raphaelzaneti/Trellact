@@ -3,4 +3,13 @@
     width: 95%;
     background-color: white;
     border-radius: 10%;
+
+}
+
+.exterior-card:hover{
+    cursor: pointer;
+}
+
+.card-title{
+    font-weight: bold;
 }

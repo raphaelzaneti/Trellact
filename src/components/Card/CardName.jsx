@@ -9,8 +9,10 @@ export default props =>{
     const name = 'name'+props.id
     const [newInput, setNewInput] = useState(undefined)
     const {isInput, setInput} = useContext(CardContext)
+    const {cardName, setCardName} = useContext(CardContext)
     const [showCard, setShowCard] = useState(true)
 
+    setCardName(props.text)
 
     function editName(){
         setInput(false)

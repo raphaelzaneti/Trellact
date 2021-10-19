@@ -1,14 +1,18 @@
 #header{
-    padding-right: 1em;
+    background-color: #780000;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-#header button{
+#header     button{
     color: #fff;
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
     border-radius: 10%;
     margin: 0.2rem 0.2rem;
-    height: 80%;
+    height: 70%;
 }
 
 #header button:hover{
@@ -16,12 +20,32 @@
     color: #000;
 }
 
-#new-board-btn{
-    float: right;
-    margin-right: 1rem;
+.logo-area{
+    display: inline-block;
+    height: 100%;
+    padding-top: 5px;
+    width: 200px;
 }
 
-#search{
-    margin: 0.2rem 2rem;
-    height: 80%;
+.final-half-header{
+    height: 100%;
+}
+
+
+#header > *{
+
+    margin-top: 4px;
+}
+
+@media screen and (max-width: 970px) {
+    #boards > span{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 630px){
+    #search > input{
+        display: inline-block;
+        width: 30px;
+    }
 }
