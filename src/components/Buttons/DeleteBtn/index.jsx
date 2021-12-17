@@ -5,7 +5,7 @@ export default props =>{
 
     return (
             <>
-                <button id={"btn-"+id} className="delete-btn btn-close" aria-label="Close" data-bs-toggle="modal" data-bs-target={"#"+id} ></button>
+                <button id={"btn-del-"+props.id} className="delete-btn btn-close" aria-label="Close" data-bs-toggle="modal" data-bs-target={"#"+id} ></button>
             
                 <div class="modal fade" id={id} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">

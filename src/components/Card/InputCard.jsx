@@ -2,12 +2,13 @@ import React, {useContext, useState} from 'react'
 import './Card.css'
 import {CardName} from '../index'
 import {CardContext} from './StoreCard.jsx'
+import { useActiveCardInput } from '../../hooks/ActiveCardInput/ActiveCardInput'
 
 export default props =>{
     
     const [newSpan, setNewSpan] = useState(undefined)
     const currentText = props.text || ""
-    const {isInput, setInput} = useContext(CardContext)
+    const {activeInput, setActiveInput} = useActiveCardInput()
 
     function handleInput(e){
         e.preventDefault()
@@ -16,7 +17,7 @@ export default props =>{
             inputBox.placeholder='Insert card name'
         } else{
             inputBox.remove()
-            setInput(true)
+            setActiveInput(false)
             setNewSpan(<CardName id={props.id} text={inputBox.value} handleCardModal={props.handleCardModal}/>)
         }
     }

@@ -6,6 +6,8 @@ export default props =>{
     const [listName, setListName] = useState(props.title)
     const [updateName, setUpdateName] = useState(true)
     const [showList, setShowList] = useState(true)
+
+
     const inputUpdate = <form type="submit" onSubmit={changeName}> 
         <input type="text" 
         value={listName}
@@ -26,8 +28,10 @@ export default props =>{
     }
 
     function deleteList(){
-        setShowList(false)
-        console.log(props.id)
+        const list = document.getElementById(props.id)
+        list.remove()
+        
+        
     }
 
     return(

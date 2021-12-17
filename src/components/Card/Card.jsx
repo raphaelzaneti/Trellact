@@ -2,25 +2,26 @@ import React, {useState, useContext, useEffect} from 'react'
 import './Card.css'
 import {CardContent, CardName, InputCard} from '../index.js'
 import {CardContext} from './StoreCard.jsx'
+import { useActiveCardInput } from '../../hooks/ActiveCardInput/ActiveCardInput'
 
 export default props =>{
 
-    const {isInput, setInput} = useContext(CardContext)
     const {cardName, setCardName} = useContext(CardContext)
+
+    const {activeInput, setActiveInput} = useActiveCardInput()
 
     useEffect(
         function activateModal(){
             const modal = document.getElementById(props.id+"active-modal") || document.getElementById(props.id+"inactive-modal")
-            if(!isInput){
+            if(activeInput){
                 modal.id = props.id+"inactive-modal"
             } else {
                 modal.id = props.id+"active-modal"
             }
-            console.log(isInput)
-        }, [isInput]
+        }, [activeInput]
     )
 
-    useEffect(()=>console.log(isInput), [isInput])
+    useEffect(()=>console.log(activeInput), [activeInput])
 
     return(
         <>

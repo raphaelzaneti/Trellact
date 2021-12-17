@@ -1,13 +1,16 @@
 import './App.css';
 import {Board, NewListBtn, Lists, Store, StoreCard} from './components/';
+import { Providers } from './hooks/Providers';
 
 function App() {
   return (
     <Store>
       <StoreCard>
-        <Board>
-          <NewListBtn />
-        </Board>
+        <Providers>
+          <Board>
+            <NewListBtn />
+          </Board>
+        </Providers>
       </StoreCard>
     </Store>
   );
