@@ -1,20 +1,18 @@
 import React, {useContext} from 'react'
-import { CardContext } from './StoreCard'
+import CardDescription from './CardDescription/CardDescription'
+import './CardContent.css'
+import CardButtons from './CardButtons/CardButtons'
+import CardActivity from './CardActivity/CardActivity'
 
 export default props =>{
     
-    const {cardName, setCardName} = useContext(CardContext)
-
-    function renderModal(){
-        console.log('ok')
-    }
-    renderModal()
-    
     return(
         <>
-            <p>Description</p>
-            <p>Buttons on the right side</p>
-            <p>Comments</p>
+            <div className="card__content-container">
+                <CardDescription id={props.id} />
+                <CardButtons />
+                <CardActivity />
+            </div>
 
         </>
     )

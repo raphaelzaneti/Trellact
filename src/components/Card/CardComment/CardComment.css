@@ -1,0 +1,34 @@
+.card__comments-comment{
+    display: grid;
+    grid-template-areas: 
+        "pic user time"
+        "pic content content"
+        "pic btn btn";
+    grid-template-columns: 10% 70% 20%;
+}
+
+.card__activity-user-image{
+    grid-area: pic;
+}
+
+.card__comment-user{
+    margin-left: 0.4rem;
+    grid-area: user;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.card__comment-time{
+    grid-area: time;
+    font-size: 0.6rem;
+    text-align: end;
+}
+
+.card__comment-content{
+    margin-left: 0.4rem;
+    grid-area: content;
+    display: inline-block;
+    background-color: #fff;
+    border-color: #aaa;
+    width: 100%;
+}

@@ -1,0 +1,45 @@
+.card__activity-icon{
+    display: inline-block;
+    margin-right: 0.4rem;
+}
+
+.card__activity{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.card__activity-title {
+    margin-left: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-block; 
+    margin: 0;
+}
+
+.card__activity-comment-area{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card__activity-user-image{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    
+}
+
+.card__activity-comment-text{
+    font-size: 0.8rem;
+    height: 2rem;
+    width: 100%;
+    margin-left: 0.6rem;
+    resize: none;
+}
+
+.card__comments{
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}

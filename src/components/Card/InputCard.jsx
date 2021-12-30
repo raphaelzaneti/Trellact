@@ -3,12 +3,14 @@ import './Card.css'
 import {CardName} from '../index'
 import {CardContext} from './StoreCard.jsx'
 import { useActiveCardInput } from '../../hooks/ActiveCardInput/ActiveCardInput'
+import { useCardName } from '../../hooks/CardName/CardName'
 
 export default props =>{
     
     const [newSpan, setNewSpan] = useState(undefined)
     const currentText = props.text || ""
     const {activeInput, setActiveInput} = useActiveCardInput()
+    const {cardName, setCardName} = useCardName()
 
     function handleInput(e){
         e.preventDefault()
@@ -18,7 +20,8 @@ export default props =>{
         } else{
             inputBox.remove()
             setActiveInput(false)
-            setNewSpan(<CardName id={props.id} text={inputBox.value} handleCardModal={props.handleCardModal}/>)
+            setCardName(inputBox.value)
+            setNewSpan(<CardName id={props.id} handleCardModal={props.handleCardModal}/>)
         }
     }
 

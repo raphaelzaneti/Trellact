@@ -10,6 +10,10 @@
     cursor: pointer;
 }
 
+.card__container{
+    background-color: #eee;
+}
+
 .card-title{
     font-weight: bold;
 }
