@@ -1,12 +1,15 @@
-#header{
+.header{
     background-color: #780000;
-    height: 60px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    height: 4rem;
+
+    padding-top: 1rem;
+
+    display: grid;
+    grid-template-areas: 'init logo final';
+    grid-template-columns: 50% 30% 20%;
 }
 
-#header     button{
+.header button{
     color: #fff;
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
@@ -15,26 +18,45 @@
     height: 70%;
 }
 
-#header button:hover{
+.header button:hover{
     background-color: rgba(255, 255, 255, 0.7);
     color: #000;
 }
 
-.logo-area{
+.header__intial-half{
+    grid-area: init;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.header__search-area{
+    margin-left: 4rem;
+}
+
+.header__search-area > *{
+    height: 70%;
+}
+
+.header__search-input{
+    border: none;
+    border-radius: 3%;
+    margin-right: 0.2rem;
+}
+
+.header__logo-area{
+    grid-area: logo;
     display: inline-block;
     height: 100%;
     padding-top: 5px;
-    width: 200px;
+    
 }
 
-.final-half-header{
+.header__final-half{
+    grid-area: final;
+    justify-self: end;
+    margin-right: 2rem;
     height: 100%;
-}
-
-
-#header > *{
-
-    margin-top: 4px;
 }
 
 @media screen and (max-width: 970px) {
@@ -44,7 +66,7 @@
 }
 
 @media screen and (max-width: 630px){
-    #search > input{
+    .header__search-area > input{
         display: inline-block;
         width: 30px;
     }
