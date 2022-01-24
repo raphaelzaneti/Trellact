@@ -1,12 +1,15 @@
 .new-list-btn{
-    display: inline;
-    margin-top: 10px;
-    width: 272px;
-    height: 30px;
+    display: inline-block;
+    margin-top: 0.6rem;
+    text-align: center;
+    width: 16rem;
+    height: 2rem;
+    padding-bottom: 2rem;
     border-radius: 3px;
     color: #fff;
     background-color: #eaa;
 }
+
 
 .new-list-btn:hover{
     background-color: #fbb;
