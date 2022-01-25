@@ -1,6 +1,6 @@
 import React from "react";
 import CardComment from "../CardComment/CardComment";
-import './CardActivity.css'
+import '../../../css/style.css'
 
 
 export default function CardActivity(props){

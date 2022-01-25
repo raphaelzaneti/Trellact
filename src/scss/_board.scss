@@ -1,3 +1,5 @@
+@use "./var";
+
 body{
     background-color: #c1121f;
     font-family: Helvetica, sans-serif;
@@ -5,8 +7,8 @@ body{
 
 .board{
     height: 100%;
-}
 
-.board__container{
-    margin-left: 0.6rem;
+    &__container{
+        margin-left: 0.6rem;
+    }
 }

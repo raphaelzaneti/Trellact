@@ -1,5 +1,5 @@
 import React from 'react'
-import './CardButtons.css'
+import '../../../css/style.css'
 
 export default function CardButtons(props){
     return(

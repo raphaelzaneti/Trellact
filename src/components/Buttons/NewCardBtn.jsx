@@ -1,4 +1,5 @@
 import React, {useState, useContext} from 'react'
+import '../../css/style.css'
 import { useActiveCardInput } from '../../hooks/ActiveCardInput/ActiveCardInput'
 import {Card} from '../index'
 

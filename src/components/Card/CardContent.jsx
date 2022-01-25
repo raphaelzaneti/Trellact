@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import CardDescription from './CardDescription/CardDescription'
-import './CardContent.css'
+import '../../css/style.css'
 import CardButtons from './CardButtons/CardButtons'
 import CardActivity from './CardActivity/CardActivity'
 

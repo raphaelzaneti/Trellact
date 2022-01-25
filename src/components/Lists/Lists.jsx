@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './Lists.css'
+import '../../css/style.css'
 import {DeleteBtn, NewCardBtn} from '../index'
 
 export default props =>{

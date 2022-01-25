@@ -1,0 +1,345 @@
+body {
+  background-color: #c1121f;
+  font-family: Helvetica, sans-serif;
+}
+
+.board {
+  height: 100%;
+}
+.board__container {
+  margin-left: 0.6rem;
+}
+
+.board__details {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+}
+.board__details-item {
+  display: inline-block;
+  height: 2.4rem;
+  border-radius: 4%;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.4rem 0.8rem;
+  margin: 0.3rem 0.6rem;
+}
+.board__details-item:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000;
+}
+.board__details-title {
+  font-weight: bold;
+}
+.board__details-separator {
+  margin: 0;
+  padding: 0;
+  background: none;
+  font-size: 2rem;
+  transform: translateY(-0.2rem);
+  opacity: 60%;
+}
+.board__details-menu {
+  margin-left: auto;
+}
+
+.header {
+  background-color: #780000;
+  height: 4rem;
+  padding-top: 1rem;
+  display: grid;
+  grid-template-areas: "init logo final";
+  grid-template-columns: 50% 30% 20%;
+}
+.header button {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 4%;
+  margin: 0.2rem 0.2rem;
+  height: 70%;
+}
+.header button:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000;
+}
+.header__intial-half {
+  grid-area: init;
+  display: flex;
+  flex-direction: row;
+}
+.header__search-area {
+  margin-left: 4rem;
+}
+.header__search-area > * {
+  height: 70%;
+}
+.header__search-input {
+  border: none;
+  border-radius: 3%;
+  margin-right: 0.2rem;
+}
+.header__logo-area {
+  grid-area: logo;
+  display: inline-block;
+  height: 100%;
+  padding-top: 5px;
+}
+.header__final-half {
+  grid-area: final;
+  justify-self: end;
+  margin-right: 2rem;
+  height: 100%;
+}
+
+@media screen and (max-width: 970px) {
+  #boards > span {
+    display: none;
+  }
+}
+@media screen and (max-width: 630px) {
+  .header__search-area > input {
+    display: inline-block;
+    width: 30px;
+  }
+}
+.new-list-btn {
+  display: inline-block;
+  margin-top: 0.6rem;
+  text-align: center;
+  width: 16rem;
+  height: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #eaa;
+}
+
+.new-list-btn:hover {
+  background-color: #fbb;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+
+.card__activity {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.card__activity-icon {
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+.card__activity-title {
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  margin: 0;
+}
+.card__activity-comment-area {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card__activity-user-image {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+.card__activity-comment-text {
+  font-size: 0.8rem;
+  height: 2rem;
+  width: 100%;
+  margin-left: 0.6rem;
+  resize: none;
+}
+
+.card__comments {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.card__button-area {
+  margin-top: 1rem;
+  margin-left: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.card__button-area-title {
+  font-size: 0.7rem;
+  color: #666;
+  text-align: end;
+}
+.card__button-area-btn {
+  margin-bottom: 0.2rem;
+  font-size: 0.8rem;
+  width: 100%;
+  text-align: center;
+  background-color: #aaa;
+  border-color: #aaa;
+}
+
+.card__comments-comment {
+  display: grid;
+  grid-template-areas: "pic user time" "pic content content" "pic btn btn";
+  grid-template-columns: 10% 70% 20%;
+}
+
+.card__activity-user-image {
+  grid-area: pic;
+}
+
+.card_comment-user {
+  margin-left: 0.4rem;
+  grid-area: user;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.card_comment-time {
+  grid-area: time;
+  font-size: 0.6rem;
+  text-align: end;
+}
+.card_comment-content {
+  margin-left: 0.4rem;
+  grid-area: content;
+  display: inline-block;
+  background-color: #fff;
+  border-color: #aaa;
+  width: 100%;
+}
+
+svg {
+  display: inline-block;
+  transform: translateY(-0.2rem);
+}
+
+.card__description {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  grid-area: "desc";
+}
+.card__description-title {
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  margin: 0;
+}
+.card__description-text {
+  font-size: 0.8rem;
+  background-color: #091e420a;
+  padding-top: 0.4rem;
+  padding-left: 0.6rem;
+}
+.card__description-content {
+  margin-bottom: 0;
+  padding-bottom: 15rem;
+}
+.card__description-initial {
+  color: #aaa;
+  text-decoration: dashed;
+}
+.card__description-text-area {
+  display: block;
+  margin-bottom: 0.4rem;
+  height: 15rem;
+  width: 21rem;
+  background-color: #091e420a;
+  font-size: 0.8rem;
+  resize: none;
+}
+.card__description-btn-area {
+  margin-top: 1rem;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.exterior-card {
+  margin-left: 5px;
+  width: 95%;
+  background-color: white;
+  border-radius: 10%;
+}
+
+.exterior-card:hover {
+  cursor: pointer;
+}
+
+.card__container {
+  background-color: #eee;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card__content-container {
+  display: grid;
+  grid-template-areas: "desc btn" "com com";
+  grid-template-columns: 80% 20%;
+}
+
+.card-span {
+  background-color: #fff;
+  width: 70%;
+  display: inline-block;
+  padding: 0.3rem 0.3rem 0.3rem 1rem;
+}
+
+.card-span:hover {
+  cursor: pointer;
+}
+
+.board-list {
+  margin: 0 4px;
+  margin-top: 10px;
+  width: 272px;
+  background-color: #ebecf0;
+  border-radius: 3px;
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.list-header {
+  display: inline-block;
+  position: relative;
+  margin: 0px;
+  width: 80%;
+}
+
+.active-input-list {
+  margin: 0 4px;
+  margin-top: 10px;
+  width: 272px;
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+#trellact-logo {
+  color: #fff;
+  margin: 0 20%;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.trellact-color {
+  color: white;
+}
+
+#trellact-logo:hover {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

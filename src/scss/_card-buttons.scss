@@ -1,0 +1,25 @@
+.card__button{
+    &-area{
+        margin-top: 1rem;
+        margin-left: 0.4rem;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    &-area-title{
+        font-size: 0.7rem;
+        color: #666;
+        text-align: end;
+    }
+
+    &-area-btn{
+        margin-bottom: 0.2rem;
+        font-size: 0.8rem;
+        width: 100%;
+        text-align: center;
+        background-color: #aaa;
+        border-color: #aaa;
+    }
+}

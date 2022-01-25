@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from 'react'
-import './NewListBtn.css'
+import '../../css/style.css'
 import {Lists, ListsInput} from '../index.js'
 import {AppContext} from '../Lists/Store'
 

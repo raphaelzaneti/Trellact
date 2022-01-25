@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { useEffect } from 'react'
-import './CardName.css'
+import '../../css/style.css'
 import {DeleteBtn, CardContent, InputCard} from '../index'
 import { useActiveCardInput } from '../../hooks/ActiveCardInput/ActiveCardInput'
 import { useCardName } from '../../hooks/CardName/CardName'

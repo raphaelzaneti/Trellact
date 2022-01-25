@@ -1,5 +1,5 @@
 import react, { useState } from "react";
-import './CardDescription.css'
+import '../../../css/style.css'
 
 export default function CardDescription(props){
 

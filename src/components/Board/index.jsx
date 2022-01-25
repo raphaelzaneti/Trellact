@@ -1,5 +1,5 @@
 import React from 'react'
-import './Board.css'
+import '../../css/style.css'
 import {BoardDetails, BoardHeader, Logo} from '../index'
 
 export default props =>{

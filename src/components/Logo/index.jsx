@@ -1,5 +1,5 @@
 import React from 'react'
-import './Logo.css'
+import '../../css/style.css'
 
 export default props =>{
 
