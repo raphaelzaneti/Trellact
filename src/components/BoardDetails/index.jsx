@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../css/style.css'
+import FavoriteStars from '../FavoriteStars/FavoriteStars'
 
 export default props =>{
 
@@ -8,10 +9,7 @@ export default props =>{
             <span type="button" id="board-title" className="board__details-item board__details-title">
                 Example Board
             </span>
-            <div id="stars-area" className="board__details-item board__details-stars-area">
-                <i class="far fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
+            <FavoriteStars />
             <div className='board__details-item board__details-separator'>
                 |
             </div>
