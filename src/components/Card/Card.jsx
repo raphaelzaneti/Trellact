@@ -11,11 +11,11 @@ export default props =>{
 
     useEffect(
         function activateModal(){
-            const modal = document.getElementById(props.id+"active-modal") || document.getElementById(props.id+"inactive-modal")
+            const modal = document.getElementById("m-"+props.id+"-active-modal") || document.getElementById("m-"+props.id+"-inactive-modal")
             if(activeInput){
-                modal.id = props.id+"inactive-modal"
+                modal.id = "m-"+props.id+"-inactive-modal"
             } else {
-                modal.id = props.id+"active-modal"
+                modal.id = "m-"+props.id+"-active-modal"
             }
         }, [activeInput]
     )
@@ -26,12 +26,18 @@ export default props =>{
         <>
         <CardNameProvider>
 
-            <div id={props.id}>
-                <InputCard id={props.id} handleCardModal={"#"+props.id+"active-modal"}/>
+            <div id={props.id}> 
+                <InputCard id={props.id} handleCardModal={"#"+"m-"+props.id+"-active-modal"}/>
             </div>
 
             
-            <div class="modal fade" id={props.id+"active-modal"} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div 
+                class="modal fade" 
+                id={"m-"+props.id+"-active-modal"} 
+                tabindex="-1" 
+                aria-labelledby="exampleModalLabel" 
+                aria-hidden="true"
+            >
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content card__container">
                         <CardHeader />

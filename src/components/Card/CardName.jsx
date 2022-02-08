@@ -15,7 +15,6 @@ export default props =>{
     const name = 'name'+props.id
     const renderizedName = cardName
 
-    console.log(props.handleCardModal)
     function editName(){
         setActiveInput(true)
         const span = document.getElementById(name)
@@ -39,7 +38,13 @@ export default props =>{
         <>
             {showCard
             ?   <>
-                    <span id={name} class="card-span" data-bs-toggle="modal" data-bs-target={props.handleCardModal}>{renderizedName}</span>
+                    <span 
+                        id={name} 
+                        class="card-span" 
+                        onClick={()=>console.log(document.getElementById("m-"+props.id+"-active-modal"))}
+                        data-bs-toggle="modal" 
+                        data-bs-target={props.handleCardModal}
+                    >{renderizedName}</span>
                     <button type="button" class="btn btn-light" id={'btn-'+props.id} onClick={() => editName()}><i class="far fa-edit"></i></button>
                     <DeleteBtn type="card" id={'card-'+name} onClick={() => deleteCard(name)} name={renderizedName} />
                     {newInput}

@@ -46,7 +46,7 @@ export default props =>{
                 </div>
                 <br /><br />
                 <div class="list-cards">
-                    <NewCardBtn />
+                    <NewCardBtn listId={props.id} />
                 </div>
             </div>
             : "a"

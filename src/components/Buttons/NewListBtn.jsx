@@ -2,18 +2,19 @@ import React, {useEffect, useState, useContext} from 'react'
 import '../../css/style.css'
 import {Lists, ListsInput} from '../index.js'
 import {AppContext} from '../Lists/Store'
-
+import {useListCounter} from '../../hooks/ListCounter/useListCounter'
 
 export default props =>{
     const [lists, setLists] = useState([])
-    const [counter, setCounter] = useState(0)
-    let listId = 'list-'+counter
+    let listId = 'list-'+0
 
     const {input, updateInput} = useContext(AppContext)    
+    const {listCounter, setListCounter} = useListCounter()
 
     function renderNewList(){
-        setCounter(counter+1)
-        setLists((a)=> [...a, <ListsInput id={listId} />])
+        setListCounter(listCounter+1)
+        listId = 'list-'+listCounter
+        setLists((a)=> [...a, <ListsInput id={listId} key={listId} />])
         updateInput(!input)
     }
 

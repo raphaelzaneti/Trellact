@@ -6,11 +6,14 @@ export const CardNameContext = createContext()
 export default function CardNameProvider(props){
     
     const [cardName, setCardName] = useState(null)
+    const [cardId, setCardId] = useState(0)
     
     return(
         <CardNameContext.Provider value={{
             cardName,
-            setCardName
+            setCardName,
+            cardId, 
+            setCardId
          }}>
             {props.children}
         </CardNameContext.Provider>
@@ -20,7 +23,7 @@ export default function CardNameProvider(props){
 export function useCardName(){
     const context = useContext(CardNameContext)
 
-    const {cardName, setCardName} = context
+    const {cardName, setCardName, cardId, setCardId} = context
 
-    return {cardName, setCardName}
+    return {cardName, setCardName, cardId, setCardId}
 }
