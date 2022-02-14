@@ -20,8 +20,6 @@ export default props =>{
         }, [activeInput]
     )
 
-    useEffect(()=>console.log(activeInput), [activeInput])
-
     return(
         <>
         <CardNameProvider>

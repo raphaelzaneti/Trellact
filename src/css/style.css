@@ -191,6 +191,51 @@ body {
   margin-top: 1rem;
 }
 
+.card__button-members-dropdown {
+  width: 16rem;
+  background-color: #eee;
+  color: #666;
+}
+.card__button-members-dropdown--title {
+  text-align: center;
+  font-size: 1rem;
+  border-bottom: solid 1px #ccc;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-bottom: 0.4rem;
+}
+.card__button-members-dropdown--list-area {
+  margin-left: 1rem;
+}
+.card__button-members-dropdown--subtitle {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.card__button-members-dropdown--list {
+  list-style: none;
+  padding-left: 0.4rem;
+}
+.card__button-members-dropdown--item {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card__button-members-dropdown--item:hover {
+  background-color: #6662;
+  cursor: pointer;
+}
+.card__button-members-dropdown--image {
+  border-radius: 100%;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.4rem;
+}
+.card__button-members-dropdown--active {
+  margin-right: 0.4rem;
+}
+
 .card__button-area {
   margin-top: 1rem;
   margin-left: 0.4rem;
@@ -311,19 +356,39 @@ svg {
 
 .card__content-container {
   display: grid;
-  grid-template-areas: "desc btn" "com com";
+  grid-template-areas: "details details" "desc btn" "com com";
   grid-template-columns: 80% 20%;
 }
 
-.card-span {
+.card__content-details {
+  grid-area: details;
+  margin-left: 1rem;
+}
+
+.card__content-members-photo {
+  border-radius: 100%;
+  height: 2rem;
+  width: 2rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+.card__content-members-photo:hover {
+  cursor: pointer;
+}
+
+.card__span {
   background-color: #fff;
   width: 70%;
   display: inline-block;
   padding: 0.3rem 0.3rem 0.3rem 1rem;
 }
-
-.card-span:hover {
+.card__span:hover {
   cursor: pointer;
+}
+.card__span-member-photo {
+  border-radius: 100%;
+  width: 2rem;
+  height: 2rem;
 }
 
 .board-list {

@@ -1,10 +1,16 @@
-.card-span{
+.card__span{
     background-color: #fff;
     width: 70%;
     display: inline-block;
     padding: 0.3rem 0.3rem 0.3rem 1rem;
-}
 
-.card-span:hover{
-    cursor: pointer;
+    &:hover{
+        cursor: pointer;
+    }
+
+    &-member-photo{
+        border-radius: 100%;
+        width: 2rem;
+        height: 2rem;
+    }
 }

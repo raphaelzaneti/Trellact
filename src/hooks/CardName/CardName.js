@@ -7,13 +7,17 @@ export default function CardNameProvider(props){
     
     const [cardName, setCardName] = useState(null)
     const [cardId, setCardId] = useState(0)
+
+    const [cardMembers, setCardMembers] = useState(null)
     
     return(
         <CardNameContext.Provider value={{
             cardName,
             setCardName,
             cardId, 
-            setCardId
+            setCardId, 
+            cardMembers, 
+            setCardMembers
          }}>
             {props.children}
         </CardNameContext.Provider>
@@ -23,7 +27,7 @@ export default function CardNameProvider(props){
 export function useCardName(){
     const context = useContext(CardNameContext)
 
-    const {cardName, setCardName, cardId, setCardId} = context
+    const {cardName, setCardName, cardId, setCardId, cardMembers, setCardMembers} = context
 
-    return {cardName, setCardName, cardId, setCardId}
+    return {cardName, setCardName, cardId, setCardId, cardMembers, setCardMembers}
 }

@@ -1,7 +1,13 @@
 .card__content-container{
     display: grid;
     grid-template-areas: 
+        'details details'
         'desc btn'
         'com com';
     grid-template-columns: 80% 20%;
+}
+
+.card__content-details{
+    grid-area: details;
+    margin-left: 1rem;
 }

@@ -1,0 +1,56 @@
+.card__button-members{
+
+    &-dropdown{
+        width: 16rem;
+        background-color: #eee;
+        color: #666;
+    }
+
+    &-dropdown--title{
+        text-align: center;
+        font-size: 1rem;
+        border-bottom: solid 1px #ccc;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding-bottom: 0.4rem;
+    }
+
+    &-dropdown--list-area{
+        margin-left: 1rem;
+    }
+
+    &-dropdown--subtitle{
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    
+    &-dropdown--list{
+        list-style: none;
+        padding-left: 0.4rem;
+    }
+
+    &-dropdown--item{
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &:hover{
+            background-color: #6662;
+            cursor: pointer;
+        }
+    }
+
+    &-dropdown--image{
+        border-radius: 100%;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.4rem;
+    }
+
+    &-dropdown--active{
+        margin-right: 0.4rem;
+    }
+
+}

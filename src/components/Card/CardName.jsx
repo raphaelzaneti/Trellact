@@ -9,9 +9,10 @@ export default props =>{
     
     const [newInput, setNewInput] = useState(undefined)
     const {activeInput, setActiveInput} = useActiveCardInput()
-    const {cardName, setCardName} = useCardName()
+    const {cardName, setCardName, cardId, setCardId, cardMembers, setCardMembers} = useCardName()
     const [showCard, setShowCard] = useState(true)
-    
+
+
     const name = 'name'+props.id
     const renderizedName = cardName
 
@@ -40,11 +41,15 @@ export default props =>{
             ?   <>
                     <span 
                         id={name} 
-                        class="card-span" 
-                        onClick={()=>console.log(document.getElementById("m-"+props.id+"-active-modal"))}
+                        class="card__span" 
                         data-bs-toggle="modal" 
                         data-bs-target={props.handleCardModal}
                     >{renderizedName}</span>
+                    <span>
+                        {cardMembers===null ? "" : cardMembers.map(e => 
+                            e.active===true ? <img className='img-fluid card__span-member-photo' src={e.photo} /> : ""
+                            )}
+                    </span>
                     <button type="button" class="btn btn-light" id={'btn-'+props.id} onClick={() => editName()}><i class="far fa-edit"></i></button>
                     <DeleteBtn type="card" id={'card-'+name} onClick={() => deleteCard(name)} name={renderizedName} />
                     {newInput}

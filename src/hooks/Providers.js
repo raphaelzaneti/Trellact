@@ -4,15 +4,18 @@ import CardCounterProvider from "./CardCounter/useCardCounter";
 import CardNameProvider from './CardName/CardName'
 import FavoriteBoardProvider from "./FavoriteBoard/useFavoriteBoard";
 import ListCounterProvider from './ListCounter/useListCounter'
+import UserProvider from "./User/useUser";
 
 export const Providers = props => (
     <FavoriteBoardProvider>
         <ListCounterProvider>
             <CardCounterProvider>
-            <CardNameProvider>
-                <ActiveCardInputProvider>
-                    {props.children}
-                </ActiveCardInputProvider>
+                <CardNameProvider>
+                    <UserProvider>
+                        <ActiveCardInputProvider>
+                            {props.children}
+                        </ActiveCardInputProvider>
+                    </UserProvider>
                 </CardNameProvider>
             </CardCounterProvider>
         </ListCounterProvider>
