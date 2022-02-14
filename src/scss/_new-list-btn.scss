@@ -1,3 +1,5 @@
+@use './var';
+
 .new-list-btn{
     display: inline-block;
     margin-top: 0.6rem;
@@ -6,11 +8,12 @@
     height: 2rem;
     padding-bottom: 2rem;
     border-radius: 3px;
-    color: #fff;
-    background-color: #eaa;
+    color: var.$board-btn-text-color;
+    background-color: var.$board-btn-bg-color;
 }
 
 
 .new-list-btn:hover{
-    background-color: #fbb;
+    background-color: var.$board-btn-bg-color-hover;
+    color: var.$board-btn-text-color-hover;
 }

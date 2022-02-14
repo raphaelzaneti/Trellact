@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../css/style.css'
 import FavoriteStars from '../FavoriteStars/FavoriteStars'
+import ThemeMenu from '../ThemeMenu/ThemeMenu'
 
 export default props =>{
 
@@ -31,6 +32,7 @@ export default props =>{
             <span type="button" id="board__details-workspace" className="board__details-item board__details-invite">
                 Invite
             </span>
+            <ThemeMenu />
             <span type="button" id="board__details-workspace" className="board__details-item board__details-menu">
                 Show menu
             </span>

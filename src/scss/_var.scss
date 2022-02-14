@@ -1,14 +1,45 @@
-//theme colors
-$red-main-bg: #c1121f;
-$red-header-bg: #780000;
-
 //general
-$board-main-bg-color: $red-main-bg;
-$board-header-bg-color: $red-header-bg;
+:root {
+    /*red*/
+    --red-main-bg: #c1121f;
+    --red-header-bg: #780000;
+
+    /*blue*/
+    --blue-main-bg: #1C6E8C;
+    --blue-header-bg: #274156;
+
+    /*green*/
+    --green-main-bg: #59981A;
+    --green-header-bg: #3D550C;
+
+    /*yellow*/
+    --yellow-main-bg: #E5C101;
+    --yellow-header-bg: #b5b507bf;
+
+    /*gray*/
+    --gray-main-bg: #b3af99;
+    --gray-header-bg: #868B8E;
+
+    /*purple*/
+    --purple-main-bg: #B175FF;
+    --purple-header-bg: #2D1674;
+
+    /*black*/
+    --black-main-bg: #464033;
+    --black-header-bg: #140005;
+
+    /*pink*/
+    --pink-main-bg: #D43790;
+    --pink-header-bg: #870A30;
+
+    --board-main-bg-color-variable: var(--red-main-bg);
+    --board-header-bg-color-variable: var(--red-header-bg);
+}
+
+
+$board-main-bg-color: var(--board-main-bg-color-variable);
+$board-header-bg-color: var(--board-header-bg-color-variable);
 $board-btn-text-color: #fff;
 $board-btn-text-color-hover: #000;
 $board-btn-bg-color:rgba(255, 255, 255, 0.5);
 $board-btn-bg-color-hover: rgba(255, 255, 255, 0.7);
-
-
-
