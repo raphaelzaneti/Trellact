@@ -1,0 +1,113 @@
+.card__button-label{
+    &-dropdown{
+        width: 18rem;
+        background-color: #eee;
+        color: #666;
+    }
+
+    &-dropdown--title{
+        text-align: center;
+        font-size: 1rem;
+        border-bottom: solid 1px #ccc;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding-bottom: 0.4rem;
+    }
+
+    &-dropdown--list-area{
+        margin-left: 1rem;
+    }
+
+    &-dropdown--subtitle{
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+}
+
+.label{
+
+    &-color{
+        display: inline-block;
+        width: 14rem;
+        height: 2.4rem;
+        border-radius: 0.2rem;
+        margin-bottom: 0.4rem;
+        text-align: end;
+        color: #fff;
+
+        cursor: pointer;
+
+        &-check{
+            display: inline-block;
+            height: 100%;
+            width: 10%;
+            padding-top: 0.5rem;
+            margin-right: 1rem;
+            opacity: 0.7;
+        }
+    }
+    
+    &-red{
+        background-color: var(--red-main-bg);
+        &:hover{
+            box-shadow: -5px 0px rgb(193 18 31 / 70%);
+        }
+        
+    }
+
+    &-blue{
+        background-color: var(--blue-main-bg);
+
+        &:hover{
+            box-shadow: -5px 0px rgb(28 110 140 / 70%);
+        }
+    }
+
+    &-green{
+        background-color: var(--green-main-bg);
+
+        &:hover{
+            box-shadow: -5px 0px rgb(89 152 26 / 70%);
+        }
+    }
+
+    &-yellow{
+        background-color: var(--yellow-main-bg);
+
+        &:hover{
+            box-shadow: -5px 0px rgb(229 193 1 / 70%);
+        }
+    }
+
+    &-gray{
+        background-color: var(--gray-main-bg);
+
+        &:hover{
+            box-shadow: -5px 0px rgb(179 175 153 / 70%);
+        }
+    }
+
+    &-purple{
+        background-color: var(--purple-main-bg);
+
+        &:hover{
+            box-shadow: -5px 0px rgb(177 117 255 / 70%);
+        }
+    }
+
+    &-black{
+        background-color: var(--black-main-bg);
+
+        &:hover{
+            box-shadow: -5px 0px rgb(70 64 51 / 70%);
+        }
+    }
+
+    &-pink{
+        background-color: var(--pink-main-bg);
+
+        &:hover{
+            box-shadow: -5px 0px rgb(212 55 144 / 70%);
+        }
+    }
+}

@@ -191,8 +191,96 @@ body {
   margin-top: 1rem;
 }
 
+.card__button-label-dropdown {
+  width: 18rem;
+  background-color: #eee;
+  color: #666;
+}
+.card__button-label-dropdown--title {
+  text-align: center;
+  font-size: 1rem;
+  border-bottom: solid 1px #ccc;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-bottom: 0.4rem;
+}
+.card__button-label-dropdown--list-area {
+  margin-left: 1rem;
+}
+.card__button-label-dropdown--subtitle {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.label-color {
+  display: inline-block;
+  width: 14rem;
+  height: 2.4rem;
+  border-radius: 0.2rem;
+  margin-bottom: 0.4rem;
+  text-align: end;
+  color: #fff;
+  cursor: pointer;
+}
+.label-color-check {
+  display: inline-block;
+  height: 100%;
+  width: 10%;
+  padding-top: 0.5rem;
+  margin-right: 1rem;
+  opacity: 0.7;
+}
+.label-red {
+  background-color: var(--red-main-bg);
+}
+.label-red:hover {
+  box-shadow: -5px 0px rgba(193, 18, 31, 0.7);
+}
+.label-blue {
+  background-color: var(--blue-main-bg);
+}
+.label-blue:hover {
+  box-shadow: -5px 0px rgba(28, 110, 140, 0.7);
+}
+.label-green {
+  background-color: var(--green-main-bg);
+}
+.label-green:hover {
+  box-shadow: -5px 0px rgba(89, 152, 26, 0.7);
+}
+.label-yellow {
+  background-color: var(--yellow-main-bg);
+}
+.label-yellow:hover {
+  box-shadow: -5px 0px rgba(229, 193, 1, 0.7);
+}
+.label-gray {
+  background-color: var(--gray-main-bg);
+}
+.label-gray:hover {
+  box-shadow: -5px 0px rgba(179, 175, 153, 0.7);
+}
+.label-purple {
+  background-color: var(--purple-main-bg);
+}
+.label-purple:hover {
+  box-shadow: -5px 0px rgba(177, 117, 255, 0.7);
+}
+.label-black {
+  background-color: var(--black-main-bg);
+}
+.label-black:hover {
+  box-shadow: -5px 0px rgba(70, 64, 51, 0.7);
+}
+.label-pink {
+  background-color: var(--pink-main-bg);
+}
+.label-pink:hover {
+  box-shadow: -5px 0px rgba(212, 55, 144, 0.7);
+}
+
 .card__button-members-dropdown {
-  width: 16rem;
+  width: 18rem;
   background-color: #eee;
   color: #666;
 }
@@ -335,6 +423,18 @@ svg {
   justify-content: space-around;
 }
 
+.card__content-label {
+  display: inline-block;
+  width: 3rem;
+  height: 2rem;
+  border-radius: 0.2rem;
+  margin-right: 0.2rem;
+}
+
+.card__content-label-area > .card__content-label {
+  box-shadow: none;
+}
+
 .exterior-card {
   margin-left: 5px;
   width: 95%;
@@ -389,6 +489,16 @@ svg {
   border-radius: 100%;
   width: 2rem;
   height: 2rem;
+}
+.card__span-label {
+  display: inline-block;
+  width: 1rem;
+  height: 0.8rem;
+  border-radius: 0.2rem;
+  margin-right: 0.2rem;
+}
+.card__span-label:hover {
+  box-shadow: none;
 }
 
 .board-list {

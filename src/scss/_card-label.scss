@@ -1,0 +1,11 @@
+.card__content-label{
+    display: inline-block;
+    width: 3rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    margin-right: 0.2rem;
+
+}
+.card__content-label-area > .card__content-label{
+    box-shadow: none;
+}

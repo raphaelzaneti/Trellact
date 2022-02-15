@@ -4,6 +4,7 @@ import '../../css/style.css'
 import CardButtons from './CardButtons/CardButtons'
 import CardActivity from './CardActivity/CardActivity'
 import CardMembers from './CardMembers/CardMembers'
+import CardLabel from './CardLabel/CardLabel'
 
 export default props =>{
     
@@ -12,6 +13,7 @@ export default props =>{
             <div className="card__content-container">
                 <div className='card__content-details'>
                     <CardMembers />
+                    <CardLabel />
                 </div>
                 <CardDescription id={props.id} />
                 <CardButtons toKey={props.id} />
