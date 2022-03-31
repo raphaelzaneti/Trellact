@@ -41,20 +41,25 @@ export default props => {
         <>
             {showCard
                 ? <>
-                    <span
-                        id={name}
-                        class="card__span"
-                        data-bs-toggle="modal"
-                        data-bs-target={props.handleCardModal}
-                    >{renderizedName}</span>
-                    {cardLabels === null ? " " : cardLabels.map(e => {
-                        return <span className={'card__span-label label-' + e}></span>
-                    })}
-                    <span>
-                        {cardMembers === null ? "" : cardMembers.map(e =>
-                            e.active === true ? <img className='img-fluid card__span-member-photo' src={e.photo} /> : ""
-                        )}
-                    </span>
+                    <div className='card__half-1'>
+                        <span
+                            id={name}
+                            class="card__span"
+                            data-bs-toggle="modal"
+                            data-bs-target={props.handleCardModal}
+                        >{renderizedName}</span>
+                        <div className='card__labels-area'>
+                            {cardLabels === null ? " " : cardLabels.map(e => {
+                                return <span className={'card__span-label label-' + e}></span>
+                            })}
+                        </div>
+
+                        <span>
+                            {cardMembers === null ? "" : cardMembers.map(e =>
+                                e.active === true ? <img className='img-fluid card__span-member-photo' src={e.photo} /> : ""
+                            )}
+                        </span>
+                    </div>
                     <button type="button" class="btn btn-light" id={'btn-' + props.id} onClick={() => editName()}><i class="far fa-edit"></i></button>
                     <DeleteBtn type="card" id={'card-' + name} onClick={() => deleteCard(name)} name={renderizedName} />
                     {newInput}

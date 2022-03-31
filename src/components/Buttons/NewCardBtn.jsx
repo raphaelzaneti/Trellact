@@ -26,7 +26,7 @@ export default props =>{
             {newCard}
             {activeInput 
                 ? null
-                : <button onClick={()=>renderNewCard()}>+ Add new card</button>           
+                : <button className='btn list__new-card-button' onClick={()=>renderNewCard()}>+ Add new card</button>           
             }
         </>
     )

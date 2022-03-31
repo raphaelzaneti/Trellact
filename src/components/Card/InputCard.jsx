@@ -14,10 +14,12 @@ export default props =>{
 
     function handleInput(e){
         e.preventDefault()
+        const formInput = document.getElementById('form'+props.id)
         const inputBox = document.getElementById('input'+props.id)
         if(inputBox.value==false){
             inputBox.placeholder='Insert card name'
         } else{
+            formInput.remove()
             inputBox.remove()
             setActiveInput(false)
             setCardName(inputBox.value)
@@ -27,7 +29,7 @@ export default props =>{
 
     return(
         <>
-            <form action="submit" onSubmit={handleInput}>
+            <form id={'form'+props.id} action="submit" onSubmit={handleInput}>
                 <input id={'input'+props.id} placeholder={currentText}/>
             </form>
             {newSpan}

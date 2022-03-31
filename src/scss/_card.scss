@@ -1,13 +1,29 @@
-.exterior-card{
+
+.list__card{
     margin-left: 5px;
+    margin-bottom: 5px;
     width: 95%;
     background-color: white;
-    border-radius: 10%;
-
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.exterior-card:hover{
+.list__card:hover{
     cursor: pointer;
+}
+
+.card__half-1{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.card__labels-area{
+    order: 1;
+    line-height: 15px;
+    margin-top: 5px;
 }
 
 .card__container{

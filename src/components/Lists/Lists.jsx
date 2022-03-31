@@ -44,7 +44,6 @@ export default props =>{
                     </div>
                         <DeleteBtn type="list" id={props.id} onClick={deleteList} name={listName}/>
                 </div>
-                <br /><br />
                 <div class="list-cards">
                     <NewCardBtn listId={props.id} />
                 </div>
