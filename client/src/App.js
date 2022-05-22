@@ -1,6 +1,7 @@
 import './App.css';
-import {Board, NewListBtn, Lists, Store, StoreCard} from './components/';
+import { Board, NewListBtn, Lists, Store, StoreCard } from './components/';
 import { Providers } from './hooks/Providers';
+import ListPositionProvider from './hooks/useListPosition/useListPosition';
 
 function App() {
   return (
@@ -8,7 +9,9 @@ function App() {
       <StoreCard>
         <Providers>
           <Board>
-            <NewListBtn />
+            <ListPositionProvider>
+              <NewListBtn />
+            </ListPositionProvider>
           </Board>
         </Providers>
       </StoreCard>

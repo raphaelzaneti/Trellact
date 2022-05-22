@@ -38,7 +38,9 @@ function dbSetup(){
         first_name VARCHAR(255) NOT NULL,
         last_name VARCHAR(255) NOT NULL,
         login VARCHAR(255) NOT NULL,
-        password VARCHAR(255) NOT NULL
+        password VARCHAR(255) NOT NULL,
+
+        UNIQUE(login)
     )`
     
     const queryTableBoards = `CREATE TABLE IF NOT EXISTS Boards(
@@ -46,7 +48,6 @@ function dbSetup(){
         board_name VARCHAR(255) NOT NULL,
         created_by INT NOT NULL,
         board_members VARCHAR(255) NOT NULL,
-        board_lists VARCHAR(255) NOT NULL,
         board_theme VARCHAR(255) NOT NULL,
         board_favorite SMALLINT NOT NULL,
 
@@ -78,11 +79,19 @@ function dbSetup(){
             REFERENCES Users(user_id)
     )`
 
+    const createUserQuery = `INSERT IGNORE INTO Users(first_name, last_name, login, password) 
+                            VALUES("Marshall", "Matters", "eminem_123", "loseyourself")`
+
+    const createBoardQuery = `INSERT IGNORE INTO Boards(board_name, created_by, board_members, board_theme, board_favorite) 
+                            VALUES("First board", 1, "eminem_123", "red", 0)`
+                            
     runQuery(queryTableUsers, 'users')
     runQuery(queryTableBoards, 'boards')
     runQuery(queryTableLists, 'lists')
     runQuery(queryTableCards, 'cards')
-
+    runQuery(createUserQuery, 'user created')
+    runQuery(createBoardQuery, 'board created')
+    
 
 }
 
