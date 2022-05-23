@@ -2,43 +2,34 @@ import React, {useState, useContext} from 'react'
 import axios from 'axios'
 import '../../css/style.css'
 import { NewListBtn, Lists } from '../index'
-import {AppContext} from './Store'
 import { useListPosition } from '../../hooks/useListPosition/useListPosition'
+import { useLists } from '../../hooks/useLists/useLists'
 
 
 export default props =>{
     
-    const [newList, setNewList] = useState(undefined)
-    const {boolInput, updateInput} = useContext(AppContext)    
-
-    //post backend integration
+    const { lists, setLists, listId, setListId } = useLists()
     const {listPosition, setListPosition} = useListPosition()
-
-    function renderCurrentLists(){
-        props.currentLists.map(e =>{
-            setNewList(<Lists id={'list-'+e.list_id} title={e.list_name}/>)
-        })
-    }
 
     function submitName(e){
         e.preventDefault()
         const input = document.getElementById(props.id)
         if(input.value === "" || undefined || null){alert('Insert a name to the list')
         } else{
-            updateInput(!boolInput)
             const div = document.getElementsByClassName("active-input-list")
-            setNewList(<Lists id={props.id} title={input.value}/>)
-            div[0].remove()
-            saveListDb(input.value)
-            console.log(listPosition)
+            props.setLists((a) => [...a, <Lists id={props.id} title={input.value} key={props.id}/>])
             setListPosition(listPosition+1)
+            props.callback(false)
+            saveListDb(input.value)
         }
     }
-
     
     function saveListDb(name){
         axios.get('http://localhost:3001/lists/create', {params: {listName: name, board: 1, listPosition: listPosition}})
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data)
+                setListId(listId+1)
+            })
     }
 
     return(
@@ -50,7 +41,6 @@ export default props =>{
                     </div>
                 </form>
             </div>
-            {newList}
         </>
     )
 }

@@ -13,8 +13,6 @@ module.exports = class ListsController{
         const query = `INSERT INTO Lists(list_name, board_id, position) VALUES('${name}', ${board}, ${position})`
 
         runQuery(query, `List ${name} added to db`)
-
-        console.log(query)
         res.send({list: name, position: position})
     }
 
@@ -35,6 +33,16 @@ module.exports = class ListsController{
                 res.send(dbCheck)
             }
         })
+    }
+
+    static async removeList(req, res){
+        const id = req.query.id
+        const name = req.query.name
+
+        const query = `DELETE FROM lists WHERE list_id=${id}`
+
+        runQuery(query, `List ${name} removed from db`)
+        res.send('list '+name+' removed')
     }
 
 }

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import '../../css/style.css'
+import { useLists } from '../../hooks/useLists/useLists'
 import { DeleteBtn, NewCardBtn } from '../index'
 
 export default props => {
@@ -8,6 +9,7 @@ export default props => {
     const [updateName, setUpdateName] = useState(true)
     const [showList, setShowList] = useState(true)
 
+    const { lists, setLists, listId, setListId } = useLists()
 
     const inputUpdate = <form type="submit" onSubmit={changeName}>
         <input type="text"
@@ -30,9 +32,14 @@ export default props => {
 
     function deleteList() {
         const list = document.getElementById(props.id)
-        list.remove()
+        setLists(lists.filter(e => e.key !== props.id))
+        removeFromDb()
+    }
 
-
+    function removeFromDb(){
+        const idNumber = props.id.split('-')[1]
+        axios.get('http://localhost:3001/lists/remove', {params: {name: listName, board: 1, id: idNumber}})
+            .then(res => console.log(res))
     }
 
     return (
