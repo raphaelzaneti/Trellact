@@ -17,10 +17,10 @@ export default props =>{
         if(input.value === "" || undefined || null){alert('Insert a name to the list')
         } else{
             const div = document.getElementsByClassName("active-input-list")
-            props.setLists((a) => [...a, <Lists id={props.id} title={input.value} key={props.id}/>])
-            setListPosition(listPosition+1)
+            props.setLists((a) => [...a, <Lists id={props.id} title={input.value} position={listPosition} key={props.id}/>])
             props.callback(false)
             saveListDb(input.value)
+            setListPosition(listPosition+1)
         }
     }
     

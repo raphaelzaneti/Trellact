@@ -1,13 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
-import ListPositionProvider from "../../hooks/useListPosition/useListPosition";
+import { useListPosition } from "../../hooks/useListPosition/useListPosition";
 import Lists from "../Lists/Lists";
 import List from "../List/List";
-import ListsProvider, { useLists } from "../../hooks/useLists/useLists";
+import { useLists } from "../../hooks/useLists/useLists";
 
 export default props => {
 
     const { lists, setLists, listId, setListId } = useLists()
+    const {listPosition, setListPosition} = useListPosition()
     
     async function getAllLists() {
 
@@ -15,23 +16,31 @@ export default props => {
             .then(res => {
                 console.log(res.data)
                 if (res.data !== null) {
+                    setLists(Array(res.data.length).fill(null))
+                    console.log(lists)
                     res.data.map(e => {
                         console.log(e)
-                        setLists((a) => [...a, <Lists id={'list-' + e.list_id} key={'list-' + e.list_id} title={e.list_name} />])
+                        setLists((a) => [...a, <Lists id={'list-' + e.list_id} position={e.position} key={'list-' + e.list_id} title={e.list_name} />])
+                        let temporaryArr = lists
+                        temporaryArr[e.position-1] = (<Lists id={'list-' + e.list_id} position={e.position} key={'list-' + e.list_id} title={e.list_name} />)
+                        setLists(temporaryArr)
+
                     })
+                    
+                    setListPosition(res.data.length)
                     setListId(res.data[res.data.length-1].list_id+1)
                 }
             })
-    }
-
+        }
+        
     useEffect(getAllLists, [])
 
     return (
 
-        <ListPositionProvider>
+        <>
             {lists}
             <List id={"list-"+listId} setLists={setLists} />
-        </ListPositionProvider>
+        </>
 
     )
 }

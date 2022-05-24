@@ -12,7 +12,9 @@ function App() {
         <Providers>
           <Board>
             <ListsProvider>
-              <ListsArea />
+              <ListPositionProvider>
+                <ListsArea />
+              </ListPositionProvider>
             </ListsProvider>
           </Board>
         </Providers>
