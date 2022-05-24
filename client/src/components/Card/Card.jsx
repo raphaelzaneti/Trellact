@@ -25,7 +25,7 @@ export default props =>{
         <CardNameProvider>
 
             <div id={props.id} className="list__card"> 
-                <InputCard id={props.id} handleCardModal={"#"+"m-"+props.id+"-active-modal"}/>
+                <InputCard id={props.id} listId={props.listId} handleCardModal={"#"+"m-"+props.id+"-active-modal"}/>
             </div>
 
             

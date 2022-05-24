@@ -10,8 +10,6 @@ import CardContent from './Card/CardContent' //adjust
 import CardName from './Card/CardName' //adjust
 import InputCard from './Card/InputCard' //adjust
 import StoreCard from './Card/StoreCard' //adjust
-import CardContext from './Card/StoreCard' //adjust
-import Lists from './Lists/Lists' //adjust
 import ListsInput from './Lists/ListsInput' //adjust
 import Store from './Lists/Store.jsx' //adjust
 import AppContext from './Lists/Store.jsx' //adjust
@@ -29,8 +27,6 @@ export {
     CardName,
     InputCard,
     StoreCard,
-    CardContext,
-    Lists,
     ListsInput,
     Store,
     AppContext,

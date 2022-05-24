@@ -1,38 +1,43 @@
 import React, {useContext, useState} from 'react'
 import '../../css/style.css'
 import {CardName} from '../index'
-import {CardContext} from './StoreCard.jsx'
 import { useActiveCardInput } from '../../hooks/ActiveCardInput/ActiveCardInput'
 import { useCardName } from '../../hooks/CardName/CardName'
+import axios from 'axios'
 
 export default props =>{
     
-    const [newSpan, setNewSpan] = useState(undefined)
+    const [allCards, setAllCards] = useState(null)
     const currentText = props.text || ""
-    const {activeInput, setActiveInput} = useActiveCardInput()
     const {cardName, setCardName} = useCardName()
 
     function handleInput(e){
         e.preventDefault()
-        const formInput = document.getElementById('form'+props.id)
-        const inputBox = document.getElementById('input'+props.id)
+        const formInput = document.getElementsByClassName('card__form-active')[0]
+        const inputBox = document.getElementsByClassName('card__input-active')[0]
         if(inputBox.value==false){
             inputBox.placeholder='Insert card name'
         } else{
-            formInput.remove()
-            inputBox.remove()
-            setActiveInput(false)
-            setCardName(inputBox.value)
-            setNewSpan(<CardName id={props.id} handleCardModal={props.handleCardModal}/>)
+            //formInput.remove()
+            //inputBox.remove()
+            
+            const cardName = inputBox.value
+            const listIdNumber = +props.listId.split('-')[1]
+            props.callback({card_name: cardName, card_id: 123})
+            
+            axios.post('http://localhost:3001/card/create', {params: {list_id: listIdNumber, card_name: cardName, created_by: 1}})
+                .then(res => res.data)
+                .then(data => props.callback({card_id: data.card_id, card_name: data.card_name}))
+            
         }
+
     }
 
     return(
         <>
-            <form id={'form'+props.id} action="submit" onSubmit={handleInput}>
-                <input id={'input'+props.id} placeholder={currentText}/>
+            <form className="card__form-active" action="submit" onSubmit={handleInput}>
+                <input className="card__input-active" placeholder={currentText}/>
             </form>
-            {newSpan}
         </>
     )
 }

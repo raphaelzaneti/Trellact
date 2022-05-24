@@ -20,11 +20,12 @@ const pool = mysql.createPool({
 })
 
 function runQuery(query, description) {
-    conn.query(query, err => {
+    conn.query(query, (err, data) => {
         if (err) {
             console.log(err)
         } else {
             console.log(description)
+            console.log(data.insertId)
         }
     })
 }

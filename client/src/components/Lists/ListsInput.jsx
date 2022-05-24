@@ -1,9 +1,9 @@
 import React, {useState, useContext} from 'react'
 import axios from 'axios'
 import '../../css/style.css'
-import { NewListBtn, Lists } from '../index'
 import { useListPosition } from '../../hooks/useListPosition/useListPosition'
 import { useLists } from '../../hooks/useLists/useLists'
+import ListBody from '../ListBody/ListBody'
 
 
 export default props =>{
@@ -17,7 +17,7 @@ export default props =>{
         if(input.value === "" || undefined || null){alert('Insert a name to the list')
         } else{
             const div = document.getElementsByClassName("active-input-list")
-            props.setLists((a) => [...a, <Lists id={props.id} title={input.value} position={listPosition} key={props.id}/>])
+            props.setLists((a) => [...a, <ListBody id={props.id} title={input.value} position={listPosition} key={props.id}/>])
             props.callback(false)
             saveListDb(input.value)
             setListPosition(listPosition+1)
