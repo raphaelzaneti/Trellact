@@ -1,9 +1,19 @@
+.card__name{
+    display: flex;
+    flex-direction: row;
+}
+
+.card__half-1{
+    width: 90%
+}
+
 .card__span{
     background-color: #fff;
-    width: 70%;
+    width: 100%;
+    height: 40px;
     display: inline-block;
     padding: 0.3rem 0.3rem 0.3rem 0;
-    order: 2;
+    order: 1;
 
     &:hover{
         cursor: pointer;
@@ -26,4 +36,8 @@
             box-shadow: none;
         }
     }
+}
+
+.card__btn-edit{
+    height: 40px;
 }

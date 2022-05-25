@@ -17,17 +17,17 @@ export default props => {
                 if(res.data.length>0){
                     res.data.map(e => setCards((a) => [...a, <CardBody listId={props.listId} key={'card-'+e.card_id} cardId={e.card_id} caption={e.card_name} activeInput={false} />]))
                 }
-            })
-            //.then(data => console.log(data))
-        //        
+            })               
     }
-        
+    
+    //getAllCards()
+
+    useEffect(getAllCards, [])
 
     return (
 
         <>
             {cards}
-            <button onClick={getAllCards}>card</button>
             <NewCardBtn listId={props.listId} />
         </>
 
