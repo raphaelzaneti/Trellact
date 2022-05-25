@@ -1,10 +1,7 @@
 import React, {useContext} from 'react'
 import '../../css/style.css'
-import {AppContext} from '../Lists/Store'
 
 export default props =>{
-
-    const {input, updateInput} = useContext(AppContext)
 
     function renderNewList(){
         props.callback(true)
@@ -19,7 +16,7 @@ export default props =>{
 
     return(
         <>
-            {input ? showButton(): ''}
+            {showButton()}
         </>
     )
 }

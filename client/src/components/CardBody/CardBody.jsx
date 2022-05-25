@@ -38,9 +38,9 @@ export default props => {
             >
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content card__container">
-                        {<CardHeader />}
+                        {/*<CardHeader />*/} <p>{cardName}</p>
                         <div class="modal-body">
-                            {<CardContent id={"card-content-" + props.id} />}
+                            {/*<CardContent id={"card-content-" + props.id} />*/} <p>content</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

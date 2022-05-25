@@ -1,9 +1,9 @@
 import react, { useContext, useState } from "react";
-import { useCardName } from "../../hooks/CardName/CardName";
+//import { useCardName } from "../../hooks/CardName/CardName";
 
 export default function CardHeader(props){
 
-    const {cardName, setCardName} = useCardName()
+  //  const {cardName, setCardName} = useCardName()
     const [isInputCard, setIsInputCard] = useState(false)
 
     function toggleInput(){

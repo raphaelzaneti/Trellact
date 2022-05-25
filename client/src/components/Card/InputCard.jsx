@@ -1,15 +1,10 @@
 import React, {useContext, useState} from 'react'
 import '../../css/style.css'
-import {CardName} from '../index'
-import { useActiveCardInput } from '../../hooks/ActiveCardInput/ActiveCardInput'
-import { useCardName } from '../../hooks/CardName/CardName'
 import axios from 'axios'
 
 export default props =>{
     
-    const [allCards, setAllCards] = useState(null)
     const currentText = props.text || ""
-    const {cardName, setCardName} = useCardName()
 
     function handleInput(e){
         e.preventDefault()

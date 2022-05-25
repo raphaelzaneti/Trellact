@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import '../../../css/style.css'
-import { useCardName } from '../../../hooks/CardName/CardName'
+//import { useCardName } from '../../../hooks/CardName/CardName'
 import { useUser } from '../../../hooks/User/useUser'
 
 export default function CardButtonMembers(props) {
 
     const { user, setUser, userList, setUserList } = useUser()
-    const {cardName, setCardName, cardId, setCardId, cardMembers, setCardMembers} = useCardName()    
+  //  const {cardName, setCardName, cardId, setCardId, cardMembers, setCardMembers} = useCardName()    
     
     let users = userList
 

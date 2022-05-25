@@ -4,7 +4,7 @@ import '../../css/style.css'
 import CardsProvider from '../../hooks/useCards/useCards'
 import { useLists } from '../../hooks/useLists/useLists'
 import CardsArea from '../CardsArea/CardsArea'
-import { DeleteBtn, NewCardBtn } from '../index'
+import { DeleteBtn } from '../index'
 
 export default props => {
     const [listName, setListName] = useState(props.title)

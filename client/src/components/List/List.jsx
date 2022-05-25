@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { ListsInput } from "..";
+import React, {useState } from "react";
+import ListsInput from "../ListsInput/ListsInput";
 import NewListBtn from "../Buttons/NewListBtn";
 
 export default props => {

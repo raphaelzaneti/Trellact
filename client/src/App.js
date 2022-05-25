@@ -7,19 +7,16 @@ import ListsProvider from './hooks/useLists/useLists';
 
 function App() {
   return (
-    <Store>
-      <StoreCard>
-        <Providers>
-          <Board>
-            <ListsProvider>
-              <ListPositionProvider>
-                <ListsArea />
-              </ListPositionProvider>
-            </ListsProvider>
-          </Board>
-        </Providers>
-      </StoreCard>
-    </Store>
+    <Providers>
+      <Board>
+        <ListsProvider>
+          <ListPositionProvider>
+            <ListsArea />
+          </ListPositionProvider>
+        </ListsProvider>
+      </Board>
+    </Providers>
+
   );
 }
 

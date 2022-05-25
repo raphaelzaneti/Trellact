@@ -1,15 +1,15 @@
 import { end } from '@popperjs/core'
 import React, { useEffect, useState } from 'react'
 import '../../../css/style.css'
-import { useCardName } from '../../../hooks/CardName/CardName'
+//import { useCardName } from '../../../hooks/CardName/CardName'
 
 export default function CardButtonLabel(props) {
 
     const [labelCheck, setLabelCheck] = useState([])
-    const { cardName, setCardName,
+  /*  const { cardName, setCardName,
         cardId, setCardId, cardMembers,
         setCardMembers, cardLabels, setCardLabels } = useCardName()
-
+*/
     function toggleLabelDropdown() {
         const dropdown = document.getElementById('card__button-label-dropdown' + props.toKey)
         if (dropdown.style.display === 'block') {
@@ -21,16 +21,16 @@ export default function CardButtonLabel(props) {
 
     function toggleLabel(color) {
 
-        if (cardLabels.includes(color)) {
+  /*      if (cardLabels.includes(color)) {
             setCardLabels(cardLabels.filter(e => e !== color))
         } else {
             setCardLabels([...cardLabels, color])
-        }
+        }*/
     }
 
-    useEffect(() => {
+/*    useEffect(() => {
         toggleLabelCheck()
-    }, [cardLabels])
+    }, [cardLabels])*/
 
     function toggleLabelCheck() {
         let referenceArray = Array(8).fill(false)
@@ -64,7 +64,7 @@ export default function CardButtonLabel(props) {
         })
 
         setLabelCheck(referenceArray)
-        console.log(labelCheck)
+    //    console.log(labelCheck)
     }
 
     const renderLabelCheck = (<span className='label-color-check'>

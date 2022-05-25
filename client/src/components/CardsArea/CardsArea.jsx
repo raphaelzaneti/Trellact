@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import NewCardBtn from "../Buttons/NewCardBtn";
 import { useCards } from "../../hooks/useCards/useCards";
-import Card from "../Card/Card";
 import CardBody from "../CardBody/CardBody";
 
 export default props => {
