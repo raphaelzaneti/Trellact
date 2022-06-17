@@ -16,6 +16,17 @@ module.exports = class ListsController{
         res.send({list: name, position: position})
     }
 
+    static async editListName(req, res){
+        const listId = req.body.data.id
+        const listNewName = req.body.data.new_name
+    
+        const query = `UPDATE lists SET list_name="${listNewName}" WHERE list_id=${listId};`
+
+        runQuery(query, `List ${listNewName} updated into db`)
+
+        res.send({list: listNewName, id: listId})
+    }
+
     static async getAllLists(req, res){
         const board = req.query.board
         const query = `SELECT * FROM Lists WHERE board_id = ${board}`

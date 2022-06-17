@@ -16,6 +16,7 @@ export default props => {
     const inputUpdate = <form type="submit" onSubmit={changeName}>
         <input type="text"
             value={listName}
+            onFocus={((e) => changeListValues(e))}
             onChange={(e) => setListName(e.target.value)} />
     </form>
 
@@ -23,9 +24,16 @@ export default props => {
         if (updateName) { return listName } else { return inputUpdate }
     }
 
+    function changeListValues(e){
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape"){setUpdateName(!updateName)}
+        });
+    }
+
     function changeName(e) {
         e.preventDefault()
         setUpdateName(!updateName)
+        changeNameInDb(listName)
     }
 
     function setBoolean() {
@@ -36,6 +44,14 @@ export default props => {
         const list = document.getElementById(props.id)
         setLists(lists.filter(e => e.key !== props.id))
         removeFromDb()
+    }
+
+    function changeNameInDb(name){
+        const idNumber = props.id.split('-')[1]
+
+        axios.post("http://localhost:3001/lists/edit/"+idNumber, {data: 
+            {id: idNumber, new_name: name}
+        }).then(res => console.log(res))
     }
 
     function removeFromDb() {
