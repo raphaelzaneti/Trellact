@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../css/style.css'
+import BoardNameInput from '../BoardNameInput/BoardNameInput'
 import FavoriteStars from '../FavoriteStars/FavoriteStars'
 import ThemeMenu from '../ThemeMenu/ThemeMenu'
 
-export default props =>{
+export default props => {
 
-    return(
+    const [showBoardNameInput, setShowBoardNameInput] = useState(false)
+    const [boardName, setBoardName] = useState(props.board_name)
+
+    function toggleInputStatus(){
+        setShowBoardNameInput(!showBoardNameInput)
+    }
+
+    return (
         <div id="board-details" className='board__details'>
-            <span type="button" id="board-title" className="board__details-item board__details-title">
-                Example Board
-            </span>
+            {
+                showBoardNameInput ?
+                    <BoardNameInput callback={toggleInputStatus} setBoardName={setBoardName} /> :
+                    <span type="button" id="board-title" className="board__details-item board__details-title" onClick={toggleInputStatus}>
+                        {boardName}
+                    </span>
+            }
             <FavoriteStars />
             <div className='board__details-item board__details-separator'>
                 |

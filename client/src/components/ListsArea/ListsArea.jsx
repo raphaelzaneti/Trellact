@@ -9,13 +9,13 @@ export default props => {
 
     const { lists, setLists, listId, setListId } = useLists()
     const {listPosition, setListPosition} = useListPosition()
-    
+
     async function getAllLists() {
 
-        await axios.get('http://localhost:3001/lists/all', { params: { board: 1 } })
+        await axios.get('http://localhost:3001/lists/all', { params: { board: props.board_id } })
             .then(res => {
                 console.log(res.data)
-                if (res.data !== null) {
+                if (res.data !== null || res.data.length > 0) {
                     setLists(Array(res.data.length).fill(null))
                     console.log(lists)
                     res.data.map(e => {
@@ -27,8 +27,12 @@ export default props => {
 
                     })
                     
-                    setListPosition(res.data.length)
-                    setListId(res.data[res.data.length-1].list_id+1)
+                    if(res.data.length > 0){
+                        setListPosition(res.data.length)
+                        setListId(res.data[res.data.length-1].list_id+1)
+                    } else{
+                        setListPosition(1)
+                    }
                 }
             })
         }

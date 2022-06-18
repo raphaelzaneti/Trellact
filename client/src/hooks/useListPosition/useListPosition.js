@@ -4,7 +4,7 @@ const ListPositionContext = createContext()
 
 export default function ListPositionProvider(props){
     
-    const [listPosition, setListPosition] = useState(0)
+    const [listPosition, setListPosition] = useState(1)
 
     return(
         <ListPositionContext.Provider value={{

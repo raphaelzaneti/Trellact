@@ -23,9 +23,17 @@ export default props =>{
             setListPosition(listPosition+1)
         }
     }
+
+    function getBoardId(){
+        const currentURL = window.location.href
+        const arrayURL = currentURL.split('/')
+
+        return arrayURL[arrayURL.length-1]
+
+    }
     
     function saveListDb(name){
-        axios.get('http://localhost:3001/lists/create', {params: {listName: name, board: 1, listPosition: listPosition}})
+        axios.get('http://localhost:3001/lists/create', {params: {listName: name, board: getBoardId(), listPosition: listPosition}})
             .then(res => {
                 console.log(res.data)
                 setListId(listId+1)
