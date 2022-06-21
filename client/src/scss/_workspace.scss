@@ -1,0 +1,154 @@
+@use "./var";
+
+.workspace {
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-top: 30px;
+        padding-left: 60px;
+        background-color: var.$workspace-main-bg-color;
+        height: 100vh;
+        color: var.$workspace-main-text-color;
+    }
+
+    &__navbar {
+        width: 30%;
+
+        &-list {
+            list-style: none;
+        }
+
+        &-item {
+            padding: 5px;
+            font-weight: bold;
+            margin-bottom: 2px;
+            border-radius: 5px;
+
+            &:hover {
+                cursor: pointer;
+                background-color: var.$workspace-bg-text-color-hover;
+            }
+        }
+    }
+
+    &__content {
+        width: 100%;
+        margin-left: 40px;
+
+        &-starred-boards {
+
+            margin-bottom: 70px;
+
+            &-title {
+                font-size: 22px;
+                font-weight: bold;
+            }
+
+            &-area {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+
+        &-workspaces {
+
+            &-title {
+                color: #888;
+                font-size: 24px;
+                font-weight: bolder;
+                margin-bottom: 20px;
+            }
+
+            &-area {
+                display: flex;
+                flex-direction: row;
+            }
+
+            &-workspace {
+
+                margin-bottom: 40px;
+
+                &_details {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 60%;
+
+                    &-title {
+                        font-size: 18px;
+                        font-weight: bold;
+                        margin-bottom: 0;
+                    }
+
+
+                    &-item{
+                        color: #555;
+                        background-color: #ccc;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        padding: 2px 5px;
+                        border-radius: 5px;
+                        width: 100px;
+                        text-align: center;
+
+                        &:hover{
+                            cursor: pointer;
+                            background-color: #bbb;
+                        }
+
+                        & svg{
+                            transform: translateY(0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    &__card-board {
+        color: #fff;
+        background-color: #aaa;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 200px;
+        height: 100px;
+        padding: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #888;
+        }
+
+        &-title {
+            font-size: 16px;
+            font-weight: bolder;
+        }
+
+        &-workspace {
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+
+            & i {
+                color: rgb(230, 230, 0);
+                align-self: center;
+
+                &:hover {
+                    color: rgba(230, 230, 0, 0.5);
+                }
+            }
+        }
+
+        &-link {
+            text-decoration: none;
+        }
+
+    }
+}

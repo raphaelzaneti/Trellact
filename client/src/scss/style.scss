@@ -21,3 +21,9 @@
 @use "./lists-input";
 @use "./logo";
 @use "./theme-menu";
+@use "./workspace";
+
+
+body{
+    font-family: Helvetica, sans-serif;
+}

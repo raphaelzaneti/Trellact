@@ -1,6 +1,6 @@
 import Board from './Board/index.jsx'
 import BoardDetails from './BoardDetails'
-import BoardHeader from './BoardHeader'
+import Header from './Header/Header'
 import Logo from './Logo'
 import DeleteBtn from './Buttons/DeleteBtn'
 import NewCardBtn from './Buttons/NewCardBtn.jsx' 
@@ -13,7 +13,7 @@ import ListsInput from './ListsInput/ListsInput' //adjust
 export {
     Board,
     BoardDetails,
-    BoardHeader,
+    Header,
     Logo,
     DeleteBtn,
     NewCardBtn,
