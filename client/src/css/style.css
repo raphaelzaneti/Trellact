@@ -29,11 +29,12 @@
 
 /*workspace*/
 .board {
-  height: 100vh;
+  height: 100%;
   background-color: var(--board-main-bg-color-variable);
 }
 .board__container {
   margin-left: 0.6rem;
+  height: 100vh;
 }
 
 .board__details {
@@ -157,9 +158,8 @@
 }
 
 .delete-btn {
-  position: absolute;
-  right: 5px;
-  top: 10px;
+  display: block;
+  width: 100%;
 }
 
 .card__activity {
@@ -541,6 +541,53 @@ svg {
 
 .card__btn-edit {
   height: 40px;
+}
+
+.list__settings-call-btn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.list__settings-dropdown {
+  display: block;
+  font-size: 14px;
+}
+.list__settings-dropdown-dnone {
+  display: none;
+}
+.list__settings-dropdown-title {
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #aaa;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.list__settings-list {
+  list-style: none;
+  padding-left: 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #aaa;
+}
+.list__settings-item {
+  font-weight: 300;
+  padding: 5px 20px;
+}
+.list__settings-item:hover {
+  cursor: pointer;
+  background-color: #bbb;
+}
+.list__settings-modal-input {
+  margin-left: 10px;
+  width: 60%;
+}
+.list__settings-modal-select {
+  margin-left: 10px;
+  width: 50px;
+  text-align: center;
+  height: 25px;
 }
 
 .board-list {

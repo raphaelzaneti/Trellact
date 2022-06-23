@@ -1,0 +1,62 @@
+@use "./var";
+
+.list__settings {
+
+    &-call-btn {
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+
+    }
+
+    &-dropdown {
+        display: block;
+        font-size: 14px;
+
+        &-dnone {
+            display: none;
+        }
+
+        &-title {
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #aaa;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+
+    &-list {
+        list-style: none;
+        padding-left: 0;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #aaa;
+    }
+
+    &-item {
+        font-weight: 300;
+        padding: 5px 20px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #bbb;
+        }
+    }
+
+    &-modal {
+        &-input {
+            margin-left: 10px;
+            width: 60%;
+        }
+
+        &-select {
+            margin-left: 10px;
+            width: 50px;
+            text-align: center;
+            height: 25px;
+        }
+    }
+}

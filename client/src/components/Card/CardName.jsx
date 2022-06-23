@@ -33,7 +33,7 @@ export default props => {
             </div>
             <div className="card__half-2">
                 <button type="button" class="btn btn-light card__btn-edit" id={'btn-' + props.id} ><i class="far fa-edit"></i></button>
-                <DeleteBtn type="card" />
+                {/*<DeleteBtn type="card" />*/}
 
             </div>
         </div>

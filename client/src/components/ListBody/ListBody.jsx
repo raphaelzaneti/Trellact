@@ -5,6 +5,7 @@ import CardsProvider from '../../hooks/useCards/useCards'
 import { useLists } from '../../hooks/useLists/useLists'
 import CardsArea from '../CardsArea/CardsArea'
 import { DeleteBtn } from '../index'
+import ListSettingBtn from '../ListSettingBtn/ListSettingBtn'
 
 export default props => {
     const [listName, setListName] = useState(props.title)
@@ -24,9 +25,9 @@ export default props => {
         if (updateName) { return listName } else { return inputUpdate }
     }
 
-    function changeListValues(e){
+    function changeListValues(e) {
         document.addEventListener("keydown", e => {
-            if (e.key === "Escape"){setUpdateName(!updateName)}
+            if (e.key === "Escape") { setUpdateName(!updateName) }
         });
     }
 
@@ -46,11 +47,12 @@ export default props => {
         removeFromDb()
     }
 
-    function changeNameInDb(name){
+    function changeNameInDb(name) {
         const idNumber = props.id.split('-')[1]
 
-        axios.post("http://localhost:3001/lists/edit/"+idNumber, {data: 
-            {id: idNumber, new_name: name}
+        axios.post("http://localhost:3001/lists/edit/" + idNumber, {
+            data:
+                { id: idNumber, new_name: name }
         }).then(res => console.log(res))
     }
 
@@ -68,7 +70,7 @@ export default props => {
                         <div class="list-header" onClick={() => setBoolean()}>
                             <span>{showName()}</span>
                         </div>
-                        <DeleteBtn type="list" id={props.id} onClick={deleteList} name={listName} />
+                        <ListSettingBtn listId={props.id} deleteCallback={deleteList} name={listName} />
                     </div>
                     <div class="list-cards">
                         <CardsProvider>

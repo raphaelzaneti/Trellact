@@ -1,11 +1,12 @@
 @use "./var";
 
 .board{
-    height: 100vh;
+    height: 100%;
     background-color: var.$board-main-bg-color;
 
 
     &__container{
         margin-left: 0.6rem;
+        height: 100vh;
     }
 }
