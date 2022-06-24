@@ -72,6 +72,7 @@ function dbSetup(){
         card_members VARCHAR(255),
         card_labels VARCHAR(255),
         created_by INT NOT NULL,
+        card_position INT NOT NULL,
 
         FOREIGN KEY(list_id)
             REFERENCES Lists(list_id),

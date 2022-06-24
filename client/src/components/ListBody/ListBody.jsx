@@ -66,17 +66,17 @@ export default props => {
         <>
             {showList
                 ? <div class="board-list" id={props.id}>
-                    <div class="list-background">
-                        <div class="list-header" onClick={() => setBoolean()}>
-                            <span>{showName()}</span>
+                    <CardsProvider>
+                        <div class="list-background">
+                            <div class="list-header" onClick={() => setBoolean()}>
+                                <span>{showName()}</span>
+                            </div>
+                            <ListSettingBtn listId={props.id} deleteCallback={deleteList} name={listName} />
                         </div>
-                        <ListSettingBtn listId={props.id} deleteCallback={deleteList} name={listName} />
-                    </div>
-                    <div class="list-cards">
-                        <CardsProvider>
+                        <div class="list-cards">
                             <CardsArea listId={props.id} />
-                        </CardsProvider>
-                    </div>
+                        </div>
+                    </CardsProvider>
                 </div>
                 : "No lists to show"
             }

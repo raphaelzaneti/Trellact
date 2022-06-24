@@ -24,9 +24,7 @@ export default props => {
                         let temporaryArr = lists
                         temporaryArr[e.position-1] = (<ListBody id={'list-' + e.list_id} position={e.position} key={'list-' + e.list_id} title={e.list_name} />)
                         setLists(temporaryArr)
-                        console.log(temporaryArr)
-                        console.log(lists)
-                    })
+                     })
                     
                     if(res.data.length > 0){
                         setListPosition(res.data.length)

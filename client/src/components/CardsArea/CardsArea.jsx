@@ -17,6 +17,7 @@ export default props => {
         await axios.get('http://localhost:3001/card/bylist', {params: {list_id: listIdNumber}})
             .then(res => {
                 if(res.data.length>0){
+                    console.log(res.data)
                     res.data.map(e => setCards((a) => [...a, <CardBody listId={props.listId} key={'card-'+e.card_id} cardId={e.card_id} caption={e.card_name} activeInput={false} />]))
                 }
             })               

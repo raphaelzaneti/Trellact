@@ -28,7 +28,7 @@ module.exports = class CardController{
 
     static async getAllCards(req, res){
         const listId = req.query.list_id
-        const query = `SELECT * FROM cards WHERE list_id = ${listId}`
+        const query = `SELECT * FROM cards WHERE list_id = ${listId} ORDER BY card_position ASC`
  
         await conn.query(query, async (err, data) => {
             if (err) {
@@ -37,12 +37,24 @@ module.exports = class CardController{
                 console.log(`Got all lists from list ${listId}`)
                 
                 const dbCheck = await data.map(e => {
-                    return {card_id: e.card_id, card_name: e.card_name}
+                    return {card_id: e.card_id, card_name: e.card_name, card_position: e.card_position}
                 })
                 console.log(dbCheck)
                 res.send(dbCheck)
             }
         })
+    }
+
+    static async sortCards(req, res){
+        const orderedCards = req.body.data.ordered_cards
+        
+        orderedCards.map(e =>{
+            const query = `UPDATE cards SET card_position=${e.new_position} WHERE card_id=${e.card_id};`
+            
+            runQuery(query, `Card ${e.card_name} updated into db`)
+ 
+        })
+
     }
 
 }

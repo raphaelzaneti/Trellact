@@ -3,12 +3,14 @@ import axios from "axios"
 import DeleteBtn from "../Buttons/DeleteBtn"
 import ListModal from "../ListModal/ListModal"
 import { useUpdate } from "../../hooks/useUpdate/useUpdate"
+import { useCards } from "../../hooks/useCards/useCards"
 
 export default props => {
 
     const {update, setUpdate} = useUpdate()
     const [showSettings, setShowSettings] = useState(false)
     const [listsPosition, setListsPosition] = useState(null) 
+    const {cards, setCards, cardId, setCardId} = useCards()
     
     const listIdNumber = +props.listId.split('-')[1]
 
@@ -57,6 +59,35 @@ export default props => {
 
     }
 
+    async function getCardsByList(){
+        const unsortedCards = await axios.get('http://localhost:3001/card/bylist', {params: {list_id: listIdNumber}})
+            .then(res => res.data.map(e => {return {caption: e.card_name, card_id: e.card_id}}))
+            .then(obj => orderCaptions(obj))
+
+
+        function orderCaptions(obj){
+            const orderedCardsCaption = obj.map(e => e.caption).sort()
+            
+            let orderedCards = Array(cards.length).fill("")
+
+            obj.map(e =>{
+                orderedCardsCaption.map((caption, index) =>{
+                    if(e.caption === caption){
+                        orderedCards[index] = e
+                        orderedCards[index].new_position = index+1
+                    }
+                })
+            })
+
+            axios.post('http://localhost:3001/card/sort', {data:{
+                ordered_cards: orderedCards
+            }})
+
+        }
+        
+    }
+
+
     useEffect(getListPositions, [])
 
     return (
@@ -86,8 +117,7 @@ export default props => {
                             callback={moveList}
                         />
                     </li>
-                    <li className="list__settings-item">Order by name</li>
-                    <li className="list__settings-item">Copy list</li>
+                    <li className="list__settings-item" onClick={getCardsByList}>Order by name</li>
                     <li className="list__settings-item">
                         <DeleteBtn type="list" id={props.listId} onClick={props.deleteCallback} name={props.name} caption="Delete List" />
                     </li>
