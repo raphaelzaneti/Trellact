@@ -80,6 +80,29 @@ function dbSetup(){
             REFERENCES Users(user_id)
     )`
 
+    const queryCardsMembers = `CREATE TABLE IF NOT EXISTS Cards_members(
+        member_card_id INT AUTO_INCREMENT PRIMARY KEY,
+        card_id INT NOT NULL,
+        member_id INT NOT NULL,
+        card_head SMALLINT NOT NULL,
+        card_follower SMALLINT NOT NULL,
+
+        FOREIGN KEY(card_id)
+            REFERENCES Cards(card_id),
+        FOREIGN KEY(member_id)
+            REFERENCES Users(user_id)
+    )`
+
+    const queryCardsLabels = `CREATE TABLE IF NOT EXISTS Cards_labels(
+        label_id INT AUTO_INCREMENT PRIMARY KEY,
+        card_id INT NOT NULL,
+        label_caption VARCHAR(255) NOT NULL,
+        label_color VARCHAR(255) NOT NULL,
+
+        FOREIGN KEY(card_id)
+            REFERENCES Cards(card_id)
+    )`
+
     const createUserQuery = `INSERT IGNORE INTO Users(first_name, last_name, login, password) 
                             VALUES("Marshall", "Matters", "eminem_123", "loseyourself")`
 
@@ -90,9 +113,12 @@ function dbSetup(){
     runQuery(queryTableBoards, 'boards')
     runQuery(queryTableLists, 'lists')
     runQuery(queryTableCards, 'cards')
+    runQuery(queryCardsMembers, 'card_members')
+    runQuery(queryCardsLabels, 'card_labels')
     runQuery(createUserQuery, 'user created')
     runQuery(createBoardQuery, 'board created')
     
+    return
 
 }
 
@@ -104,4 +130,6 @@ function runQuery(query, description){
             console.log('setup of table '+description+' ok')
         }
     })
+
+    return
 }
