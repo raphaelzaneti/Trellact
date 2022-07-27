@@ -63,6 +63,17 @@ module.exports = class CardController{
         })
     }
 
+    static async editCardName(req, res){
+        const cardId = req.body.params.card_id
+        const cardName = req.body.params.card_name
+
+        console.log(cardId, cardName)
+
+        const query = `UPDATE cards SET card_name="${cardName}" WHERE card_id=${cardId};`
+            
+        runQuery(query, `Card ${cardName} updated into db`)
+    }
+
     static async sortCards(req, res){
         const orderedCards = req.body.data.ordered_cards
         

@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../css/style.css'
+import CardEditModal from '../CardEditModal/CardEditModal'
 import { DeleteBtn } from '../index'
 
 export default props => {
@@ -32,10 +33,16 @@ export default props => {
                 </span>
             </div>
             <div className="card__half-2">
-                <button type="button" class="btn btn-light card__btn-edit" id={'btn-' + props.id} ><i class="far fa-edit"></i></button>
-                {/*<DeleteBtn type="card" />*/}
-
+                <button 
+                    type="button" 
+                    class="card__btn-edit" 
+                    id={'btn-' + props.id} 
+                    data-bs-toggle="modal"
+                    data-bs-target={"#edit-modal-"+props.cardId}
+                />
             </div>
+
+            <CardEditModal cardId={props.cardId} cardName={props.name} />
         </div>
     )
 

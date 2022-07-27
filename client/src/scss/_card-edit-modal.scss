@@ -1,0 +1,83 @@
+@use "./var";
+
+.card__edit-modal{
+
+    &_main-height{
+        height: 200px;
+    }
+
+    &_flex{
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        height: 100%;
+        border: none;
+    }
+
+    &_content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_btn{
+        background-color: #ccc;
+        border: none;
+        border-radius: 5px;
+        padding: 6px 16px;
+        font-size: 16px;
+        font-weight: 500;
+
+        &:hover{
+            background-color: #bbb;
+        }
+
+        &-save{
+            margin-top: 10px;
+            width: 30%;
+            color: #fff;
+            background-color: var(--blue-main-bg);
+
+            &:hover{
+                background-color: var(--blue-header-bg);
+            }
+        }
+    }
+
+    &_label{
+        font-weight: 600;
+        margin-bottom: 5px;
+        background-color: #bbb;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+
+    &_input{
+        font-size: 16px;
+        padding: 6px 2px;
+        border: none;
+        border-radius: 5px;
+        height: 70%;
+    }
+
+    &_settings{
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        &-btn{
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            width: 170px;
+            text-align: left;
+            padding: 5px 10px;
+            
+            &:hover {
+                background-color: #222;
+                cursor: pointer;
+            }
+        }
+    }
+}

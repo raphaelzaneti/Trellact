@@ -434,6 +434,74 @@ svg {
   justify-content: space-around;
 }
 
+.card__edit-modal_main-height {
+  height: 200px;
+}
+.card__edit-modal_flex {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  height: 100%;
+  border: none;
+}
+.card__edit-modal_content {
+  display: flex;
+  flex-direction: column;
+}
+.card__edit-modal_btn {
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.card__edit-modal_btn:hover {
+  background-color: #bbb;
+}
+.card__edit-modal_btn-save {
+  margin-top: 10px;
+  width: 30%;
+  color: #fff;
+  background-color: var(--blue-main-bg);
+}
+.card__edit-modal_btn-save:hover {
+  background-color: var(--blue-header-bg);
+}
+.card__edit-modal_label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  background-color: #bbb;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.card__edit-modal_input {
+  font-size: 16px;
+  padding: 6px 2px;
+  border: none;
+  border-radius: 5px;
+  height: 70%;
+}
+.card__edit-modal_settings {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.card__edit-modal_settings-btn {
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  width: 170px;
+  text-align: left;
+  padding: 5px 10px;
+}
+.card__edit-modal_settings-btn:hover {
+  background-color: #222;
+  cursor: pointer;
+}
+
 .card__content-label {
   display: inline-block;
   width: 3rem;
@@ -506,6 +574,15 @@ svg {
 .card__name {
   display: flex;
   flex-direction: row;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 8px;
+}
+.card__name:hover {
+  background-color: #ddd;
+}
+.card__name:hover .card__btn-edit {
+  display: block;
 }
 
 .card__half-1 {
@@ -513,11 +590,10 @@ svg {
 }
 
 .card__span {
-  background-color: #fff;
   width: 100%;
-  height: 40px;
+  height: 60px;
   display: inline-block;
-  padding: 0.3rem 0.3rem 0.3rem 0;
+  padding: 2px 0 0 5px;
   order: 1;
 }
 .card__span:hover {
@@ -540,7 +616,19 @@ svg {
 }
 
 .card__btn-edit {
-  height: 40px;
+  display: none;
+  height: 20px;
+  width: 20px;
+  background-image: url("../assets/icons/edit.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 8px 5px;
+}
+.card__btn-edit:hover {
+  background-color: #c9c9c9;
+  border-radius: 5px;
 }
 
 .list__settings-call-btn {
