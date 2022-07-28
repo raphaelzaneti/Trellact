@@ -1,9 +1,13 @@
 import React, { useEffect, useMemo, useState } from "react";
 import axios from 'axios'
+import { useUpdate } from "../../hooks/useUpdate/useUpdate";
+import CardEditModalMembers from "../CardEditModalMembers/CardEditModalMembers";
 
 export default props => {
+
     const [cardName, setCardName] = useState(props.cardName)
     const [currentCardId, setCurrentCardId] = useState(props.cardId)
+    const {update, setUpdate} = useUpdate()
 
     function changeCardName(e) {
         setCardName(e.target.value)
@@ -11,12 +15,19 @@ export default props => {
     }
 
     function updateCardName() {
-        console.log(cardName)
-
         axios.post('http://localhost:3001/card/edit-name', { params: { card_id: currentCardId, card_name: cardName } })
             .then(res => res.data)
             .then(data => console.log(data))
 
+    }
+
+    function removeCard(){
+        axios.post('http://localhost:3001/card/remove', { params: { card_id: currentCardId } })
+            .then(res => res.data)
+            .then(data => {
+                console.log(data)
+                setUpdate(!update)
+            })
     }
 
     return (
@@ -44,9 +55,10 @@ export default props => {
                         </div>
                         <div className="card__edit-modal_settings">
                             <button className="card__edit-modal_settings-btn">Edit labels</button>
-                            <button className="card__edit-modal_settings-btn">Edit members</button>
+                            
+                            <CardEditModalMembers cardId={currentCardId} />
                             <button className="card__edit-modal_settings-btn">Move</button>
-                            <button className="card__edit-modal_settings-btn">Delete</button>
+                            <button className="card__edit-modal_settings-btn" onClick={removeCard} data-bs-dismiss="modal">Delete</button>
                         </div>
                     </div>
                 </div>

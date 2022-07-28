@@ -47,7 +47,6 @@ function dbSetup(){
         board_id INT AUTO_INCREMENT PRIMARY KEY,
         board_name VARCHAR(255) NOT NULL,
         created_by INT NOT NULL,
-        board_members VARCHAR(255) NOT NULL,
         board_theme VARCHAR(255) NOT NULL,
         board_favorite SMALLINT NOT NULL,
 
@@ -103,11 +102,22 @@ function dbSetup(){
             REFERENCES Cards(card_id)
     )`
 
+    const queryBoardMembers = `CREATE TABLE IF NOT EXISTS Boards_members(
+        member_board_id INT AUTO_INCREMENT PRIMARY KEY,
+        board_id INT NOT NULL,
+        member_id INT NOT NULL,
+        
+        FOREIGN KEY(board_id)
+            REFERENCES Boards(board_id),
+        FOREIGN KEY(member_id)
+            REFERENCES Users(user_id)
+    )`
+
     const createUserQuery = `INSERT IGNORE INTO Users(first_name, last_name, login, password) 
                             VALUES("Marshall", "Matters", "eminem_123", "loseyourself")`
 
-    const createBoardQuery = `INSERT IGNORE INTO Boards(board_name, created_by, board_members, board_theme, board_favorite) 
-                            VALUES("First board", 1, "eminem_123", "red", 0)`
+    const createBoardQuery = `INSERT IGNORE INTO Boards(board_name, created_by, board_theme, board_favorite) 
+                            VALUES("First board", 1, "red", 0)`
                             
     runQuery(queryTableUsers, 'users')
     runQuery(queryTableBoards, 'boards')
@@ -115,6 +125,7 @@ function dbSetup(){
     runQuery(queryTableCards, 'cards')
     runQuery(queryCardsMembers, 'card_members')
     runQuery(queryCardsLabels, 'card_labels')
+    runQuery(queryBoardMembers, 'board_members')
     runQuery(createUserQuery, 'user created')
     runQuery(createBoardQuery, 'board created')
     

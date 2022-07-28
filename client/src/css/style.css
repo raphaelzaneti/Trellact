@@ -435,7 +435,7 @@ svg {
 }
 
 .card__edit-modal_main-height {
-  height: 200px;
+  height: 400px;
 }
 .card__edit-modal_flex {
   display: flex;
@@ -480,13 +480,14 @@ svg {
   padding: 6px 2px;
   border: none;
   border-radius: 5px;
-  height: 70%;
+  height: 100px;
 }
 .card__edit-modal_settings {
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  padding-top: 1rem;
 }
 .card__edit-modal_settings-btn {
   border: none;
@@ -496,10 +497,81 @@ svg {
   width: 170px;
   text-align: left;
   padding: 5px 10px;
+  margin-bottom: 8px;
 }
 .card__edit-modal_settings-btn:hover {
   background-color: #222;
   cursor: pointer;
+  transform: translateX(5px);
+}
+.card__edit-modal_settings-btn + article {
+  margin-top: -8px;
+}
+.card__edit-modal_edit-members {
+  background-color: #eee;
+  border-radius: 2px;
+  min-height: 100px;
+}
+.card__edit-modal_edit-members-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #bbb;
+  margin: 5px 8px;
+}
+.card__edit-modal_edit-members-header h4 {
+  text-align: center;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.card__edit-modal_edit-members-header button {
+  font-size: 12px;
+  font-weight: 300;
+  color: #aaa;
+  border: none;
+  background-color: transparent;
+}
+.card__edit-modal_edit-members-header button:hover {
+  color: #555;
+}
+.card__edit-modal_edit-members-content {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+.card__edit-modal_edit-members-content > span {
+  font-size: 12px;
+  font-weight: 600;
+}
+.card__edit-modal_edit-members-content-member {
+  margin-top: 5px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+.card__edit-modal_edit-members-content-initials {
+  background-color: blue;
+  padding: 5px;
+  border-radius: 100%;
+  margin-right: 5px;
+  width: 35px;
+  text-align: center;
+}
+.card__edit-modal_edit-members-content-active {
+  background-image: url("../assets/icons/check.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  justify-self: flex-end;
+  color: transparent;
+  width: 14px;
+  opacity: 0.3;
 }
 
 .card__content-label {

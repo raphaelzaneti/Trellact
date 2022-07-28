@@ -2,7 +2,7 @@ const mysql = require('mysql')
 require('dotenv').config()
 const {conn, runQuery} = require('../db/db')
 
-module.exports = class ListsController{
+module.exports = class BoardsController{
 
     static async getAllBoards(req, res){
         const userId = req.query.user_id

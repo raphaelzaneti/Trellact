@@ -3,7 +3,7 @@
 .card__edit-modal{
 
     &_main-height{
-        height: 200px;
+        height: 400px;
     }
 
     &_flex{
@@ -56,14 +56,15 @@
         padding: 6px 2px;
         border: none;
         border-radius: 5px;
-        height: 70%;
+        height: 100px;
     }
 
     &_settings{
         margin-left: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: flex-start;
+        padding-top: 1rem;
 
         &-btn{
             border: none;
@@ -73,10 +74,91 @@
             width: 170px;
             text-align: left;
             padding: 5px 10px;
+            margin-bottom: 8px;
             
             &:hover {
                 background-color: #222;
                 cursor: pointer;
+                transform: translateX(5px);
+            }
+
+            &+article{
+                margin-top: -8px;
+            }
+        }
+    }
+
+    &_edit-members{
+        background-color: #eee;
+        border-radius: 2px;
+        min-height: 100px;
+
+        &-header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-bottom: 5px;
+            border-bottom: solid 1px #bbb;
+            margin: 5px 8px;
+            
+            & h4{
+                text-align: center;
+                width: 100%;
+                font-weight: 400;
+                font-size: 16px;
+                margin-bottom: 0;
+            }
+
+            & button{
+                font-size: 12px;
+                font-weight: 300;
+                color: #aaa;
+                border: none;
+                background-color: transparent;
+
+                &:hover{
+                    color: #555;
+                }
+            }
+        }
+
+        &-content{
+            margin-left: 5px;
+            margin-right: 5px;    
+            margin-bottom: 10px;
+            & > span {
+                font-size: 12px;
+                font-weight: 600;
+            }
+            
+            &-member{
+                margin-top: 5px;
+                font-size: 14px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                cursor: pointer;
+            }
+            
+            &-initials{
+                background-color: blue;
+                padding: 5px;
+                border-radius: 100%;
+                margin-right: 5px;
+                width: 35px;
+                text-align: center;
+            }
+
+            &-active{
+                background-image: url('../assets/icons/check.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-left: auto;
+                justify-self: flex-end;
+                color: transparent;
+                width: 14px;
+                opacity: 0.3;
             }
         }
     }

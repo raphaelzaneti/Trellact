@@ -67,8 +67,6 @@ module.exports = class CardController{
         const cardId = req.body.params.card_id
         const cardName = req.body.params.card_name
 
-        console.log(cardId, cardName)
-
         const query = `UPDATE cards SET card_name="${cardName}" WHERE card_id=${cardId};`
             
         runQuery(query, `Card ${cardName} updated into db`)
@@ -98,6 +96,44 @@ module.exports = class CardController{
             }
         })
                 
+    }
+
+    static async removeCard(req, res){
+        const cardId = req.body.params.card_id
+
+        const membersQuery = `DELETE FROM cards_members WHERE card_id=${cardId};`
+        const query = `DELETE FROM cards WHERE card_id=${cardId};`
+            
+        
+        runQuery(membersQuery, `Card ${cardId} removed from card-members`)
+        runQuery(query, `Card ${cardId} removed from db`)
+
+    }
+
+    static async setCardMember(req, res){
+        const cardId = req.body.params.card_id
+        const userId = req.body.params.user_id
+        const isMember = req.body.params.is_member
+
+        let query, action
+
+        if(isMember){
+            query = `DELETE FROM cards_members WHERE card_id=${cardId}`
+            action = 'removed from'
+        } else{
+            query = `INSERT INTO cards_members(card_id, member_id, card_head, card_follower) VALUES(${cardId}, ${userId}, 0, 1)`
+            action = 'added into'
+        }
+
+        await conn.query(query, async (err, data) => {
+            if (err) {
+                console.log(err)
+                res.send({success: false})
+            } else {
+                res.send({success: true})
+            }
+        })
+
     }
 
 }

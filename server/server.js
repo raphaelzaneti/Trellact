@@ -9,10 +9,12 @@ app.use(express.json())
 const listRoutes = require('./routes/listRoutes')
 const cardRoutes = require('./routes/cardRoutes')
 const boardsRoutes = require('./routes/boardsRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 app.use('/lists', listRoutes)
 app.use('/card', cardRoutes)
 app.use('/boards', boardsRoutes)
+app.use('/user', userRoutes)
 
 app.get('/test', (req, res) =>{
     console.log('conected')
