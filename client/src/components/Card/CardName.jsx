@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../css/style.css'
 import CardEditModal from '../CardEditModal/CardEditModal'
 import { DeleteBtn } from '../index'
@@ -7,6 +7,7 @@ import { DeleteBtn } from '../index'
 export default props => {
 
     const [cardMembers, setCardMembers] = useState([])
+    const [cardLabels, setCardLabels] = useState([])
 
     function deleteCard(id) {
 
@@ -21,20 +22,32 @@ export default props => {
             .then(data => setCardMembers(data))
     }
 
-    getCardMembers()
+    function getCardLabels(){
+        axios.get('http://localhost:3001/card/get-labels', {params: {card_id: props.cardId}})
+            .then(res => res.data)
+            .then(data => {
+                setCardLabels(data)
+            })
+    }
+
+    useEffect(() =>{
+        getCardMembers()
+        getCardLabels()
+    }, [])
 
     return (
         <div className='card__name'>
-            <div className='card__half-1' onClick={getCardMembers}>
+            <div className='card__half-1' onClick={getCardLabels}>
                 <span
                     class="card__span"
                     data-bs-toggle="modal"
                     data-bs-target={"#active-modal-"+props.cardId}
                 >{props.name}</span>
                 <div className='card__labels-area'>
-                    {/*cardLabels === null ? " " : cardLabels.map(e => {
-                        return <span className={'card__span-label label-' + e}></span>
-                    })*/}
+                    {
+                    cardLabels.length !== 0 ?cardLabels.map(e => {
+                        return <span className={'card__span-label card__label-'+e.label_color}></span>
+                    }) : " "}
                 </div>
                 <span className='card__members-area'>
                     {cardMembers.length !== 0 ? cardMembers.map(e => (<span className='card__members-member'>{e.first_name[0]}{e.last_name[0]}</span>)) : ""}

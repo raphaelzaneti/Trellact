@@ -10,5 +10,6 @@ router.post('/sort', CardController.sortCards)
 router.get('/currentposition', CardController.getCurrentPosition)
 router.post('/remove', CardController.removeCard)
 router.post('/set-member', CardController.setCardMember)
+router.get('/get-labels', CardController.getCardLabels)
 
 module.exports = router

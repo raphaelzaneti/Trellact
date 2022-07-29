@@ -50,7 +50,8 @@ export default props => {
                                 text={cardName}
                                 onChange={changeCardName}
                                 className="card__edit-modal_input"
-                            >{cardName}</textarea>
+                                value={cardName}
+                            ></textarea>
                             <button className="card__edit-modal_btn card__edit-modal_btn-save" onClick={updateCardName}>Save</button>
                         </div>
                         <div className="card__edit-modal_settings">

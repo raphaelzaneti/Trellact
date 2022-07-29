@@ -130,7 +130,7 @@ module.exports = class CardController{
         }
 
         await conn.query(query, async (err, data) => {
-            console.log('inside conn '+query)
+            
             if (err) {
                 console.log(err)
                 res.send({success: false})
@@ -138,7 +138,20 @@ module.exports = class CardController{
                 res.send({success: true})
             }
         })
-        
+    }
+
+    static async getCardLabels(req, res){
+        const cardId = req.query.card_id
+
+        const query = `SELECT * FROM cards_labels WHERE card_id=${cardId}`
+
+        await conn.query(query, async (err, data) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(data)
+            }
+        })
 
     }
 
