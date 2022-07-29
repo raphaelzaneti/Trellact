@@ -37,7 +37,7 @@ export default props => {
 
     return (
         <div className='card__name'>
-            <div className='card__half-1' onClick={getCardLabels}>
+            <div className='card__half-1'>
                 <span
                     class="card__span"
                     data-bs-toggle="modal"

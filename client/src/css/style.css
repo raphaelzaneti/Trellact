@@ -65,6 +65,19 @@
   transform: translateY(-0.2rem);
   opacity: 60%;
 }
+.board__details-members-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10px;
+}
+.board__details-member {
+  background-color: blue;
+  border-radius: 100%;
+  font-size: 12px;
+  padding: 5px;
+  margin-right: 3px;
+}
 
 .header {
   background-color: var(--board-header-bg-color-variable);

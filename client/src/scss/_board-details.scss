@@ -32,4 +32,19 @@
         opacity: 60%;
     }
 
+    &-members-area{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    &-member{
+        background-color: blue;
+        border-radius: 100%;
+        font-size: 12px;
+        padding: 5px;
+        margin-right: 3px;
+    }
+
 }

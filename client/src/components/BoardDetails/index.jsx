@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../../css/style.css'
+import BoardMembers from '../BoardMembers/BoardMembers'
 import BoardNameInput from '../BoardNameInput/BoardNameInput'
 import FavoriteStars from '../FavoriteStars/FavoriteStars'
 import ThemeMenu from '../ThemeMenu/ThemeMenu'
@@ -38,9 +39,7 @@ export default props => {
             <div className='board__details-item board__details-separator'>
                 |
             </div>
-            <span type="button" id="board__details-workspace" className="board__details-item board__details-users">
-                Users pictures
-            </span>
+            <BoardMembers />
             <span type="button" id="board__details-workspace" className="board__details-item board__details-invite">
                 Invite
             </span>

@@ -6,7 +6,8 @@ module.exports = class UserController{
     
     static async getAllMembersFromBoard(req, res){
         const boardId = req.query.board_id
-        const cardId = req.query.card_id
+        const cardId = req.query.card_id !== undefined ? req.query.card_id : 1
+        
         
         const query = `SELECT user_id, first_name, last_name, login 
             FROM users 
