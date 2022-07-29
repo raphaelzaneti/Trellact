@@ -24,28 +24,13 @@ export default props => {
 
     function getAllBoardMembers() {
 
-        axios.get('http://localhost:3001/user/from-board/all', { params: { board_id: getBoardId() } })
+        axios.get('http://localhost:3001/user/from-board/all', { params: { board_id: getBoardId(), card_id: props.cardId } })
             .then(res => res.data)
             .then(data => {
                 const users = data
-                users.map(e => e.is_member = false)
                 setBoardMembers(users)
-                checkActiveUsers(users)
             })
         }
-        
-        
-    async function checkActiveUsers(users){
-
-        await axios.get('http://localhost:3001/user/from-card/all', { params: { card_id: props.cardId } })
-            .then(res => res.data)
-            .then(data => {
-                users.map(e => {
-                    data.map(user => user.member_id === e.user_id ? e.is_member = true : null)
-                })
-                setUpdateBoardMembers(!updateBoardMembers)
-            })
-    }
 
     function toggleActiveUser(userId, isMember){
         
@@ -77,7 +62,7 @@ export default props => {
                     <button onClick={toggleMembersEdit}>X</button>
                 </div>
                 <div className="card__edit-modal_edit-members-content">
-                    <span>Board members</span>
+                    <span onClick={() => console.log(boardMembers)} >Board members</span>
                     <div className="card__edit-modal_edit-members-content-members-area">
                         {boardMembers !== null ?
                             boardMembers.map(e => (

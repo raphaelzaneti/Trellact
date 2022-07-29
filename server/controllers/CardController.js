@@ -117,15 +117,20 @@ module.exports = class CardController{
 
         let query, action
 
+        console.log(req.body.params)
+
         if(isMember){
-            query = `DELETE FROM cards_members WHERE card_id=${cardId}`
+            query = `DELETE FROM cards_members WHERE card_id=${cardId} AND member_id=${userId}`
             action = 'removed from'
+            console.log(query)
         } else{
             query = `INSERT INTO cards_members(card_id, member_id, card_head, card_follower) VALUES(${cardId}, ${userId}, 0, 1)`
             action = 'added into'
+            console.log(query)
         }
 
         await conn.query(query, async (err, data) => {
+            console.log('inside conn '+query)
             if (err) {
                 console.log(err)
                 res.send({success: false})
@@ -133,6 +138,7 @@ module.exports = class CardController{
                 res.send({success: true})
             }
         })
+        
 
     }
 

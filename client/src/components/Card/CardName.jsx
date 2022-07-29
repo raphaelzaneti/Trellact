@@ -1,9 +1,12 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import '../../css/style.css'
 import CardEditModal from '../CardEditModal/CardEditModal'
 import { DeleteBtn } from '../index'
 
 export default props => {
+
+    const [cardMembers, setCardMembers] = useState([])
 
     function deleteCard(id) {
 
@@ -12,9 +15,17 @@ export default props => {
         card.remove()
     }
 
+    function getCardMembers(){
+        axios.get('http://localhost:3001/user/from-card/all', {params: {card_id: props.cardId}})
+            .then(res => res.data)
+            .then(data => setCardMembers(data))
+    }
+
+    getCardMembers()
+
     return (
         <div className='card__name'>
-            <div className='card__half-1'>
+            <div className='card__half-1' onClick={getCardMembers}>
                 <span
                     class="card__span"
                     data-bs-toggle="modal"
@@ -25,11 +36,9 @@ export default props => {
                         return <span className={'card__span-label label-' + e}></span>
                     })*/}
                 </div>
-
-                <span>
-                    {/*cardMembers === null ? "" : cardMembers.map(e =>
-                        e.active === true ? <img className='img-fluid card__span-member-photo' src={e.photo} /> : ""
-                    )*/}
+                <span className='card__members-area'>
+                    {cardMembers.length !== 0 ? cardMembers.map(e => (<span className='card__members-member'>{e.first_name[0]}{e.last_name[0]}</span>)) : ""}
+                    
                 </span>
             </div>
             <div className="card__half-2">

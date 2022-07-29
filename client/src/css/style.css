@@ -649,6 +649,7 @@ svg {
   background-color: #fff;
   border-radius: 5px;
   margin: 8px;
+  height: 80px;
 }
 .card__name:hover {
   background-color: #ddd;
@@ -659,11 +660,13 @@ svg {
 
 .card__half-1 {
   width: 90%;
+  display: flex;
+  flex-direction: column;
 }
 
 .card__span {
   width: 100%;
-  height: 60px;
+  height: 30px;
   display: inline-block;
   padding: 2px 0 0 5px;
   order: 1;
@@ -685,6 +688,22 @@ svg {
 }
 .card__span-label:hover {
   box-shadow: none;
+}
+
+.card__members-area {
+  order: 3;
+  margin-top: auto;
+  margin-bottom: 5px;
+  align-self: flex-end;
+}
+
+.card__members-member {
+  font-size: 12px;
+  color: #fff;
+  background-color: blue;
+  padding: 5px;
+  border-radius: 100%;
+  margin-right: 4px;
 }
 
 .card__btn-edit {
