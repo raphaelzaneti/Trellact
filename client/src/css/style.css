@@ -78,10 +78,98 @@
   padding: 5px;
   margin-right: 3px;
 }
+.board__details-menu-open {
+  display: block;
+  width: 300px;
+  background-color: #aaa;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  top: 60px;
+  right: 0;
+  transition: width 0.5s;
+}
+.board__details-menu-closed {
+  height: 0;
+  width: 0;
+  transition: width 0.5s;
+}
+.board__details-menu-header {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-bottom: solid #ccc 1px;
+}
+.board__details-menu-title {
+  text-align: center;
+  width: 100%;
+}
+.board__details-menu-close {
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 5px;
+  color: #fff;
+}
+.board__details-menu-content {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.board__details-menu-about {
+  cursor: pointer;
+  height: 60px;
+  display: grid;
+  grid-template-areas: "icon text" ". desc";
+  grid-template-columns: 10% 90%;
+  margin-bottom: 10px;
+}
+.board__details-menu-about:hover {
+  background-color: #bbb;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+.board__details-menu-about-icon {
+  font-size: 20px;
+}
+.board__details-menu-about-text {
+  align-self: center;
+  font-weight: bold;
+}
+.board__details-menu-about-description {
+  grid-area: desc;
+  align-self: flex-start;
+}
+.board__details-menu-change-theme {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding-top: 5px;
+  height: 30px;
+}
+.board__details-menu-change-theme:hover {
+  background-color: #bbb;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+.board__details-menu-change-theme-color {
+  height: 20px;
+  width: 20px;
+  background-color: blue;
+  border-radius: 30%;
+  margin-right: 10px;
+}
+.board__details-menu-log-area {
+  margin-top: 30px;
+}
 
 .header {
   background-color: var(--board-header-bg-color-variable);
-  height: 4rem;
+  height: 60px;
   padding-top: 1rem;
   display: grid;
   grid-template-areas: "init logo final";

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../../css/style.css'
 import BoardMembers from '../BoardMembers/BoardMembers'
 import BoardNameInput from '../BoardNameInput/BoardNameInput'
+import BoardSettingsMenu from '../BoardSettingsMenu/BoardSettingsMenu'
 import FavoriteStars from '../FavoriteStars/FavoriteStars'
 import ThemeMenu from '../ThemeMenu/ThemeMenu'
 
@@ -44,9 +45,7 @@ export default props => {
                 Invite
             </span>
             <ThemeMenu />
-            <span type="button" id="board__details-workspace" className="board__details-item board__details-menu">
-                Show menu
-            </span>
+            <BoardSettingsMenu />
         </div>
     )
 }
