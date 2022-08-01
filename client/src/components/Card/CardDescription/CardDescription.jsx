@@ -38,13 +38,12 @@ export default function CardDescription(props){
                 ?<>
                     <textarea className="card__description-text-area card__description-text" 
                         id={props.id+"-description-text-area"} 
-                        className="card__description-text-area" 
                         onChange={e => setTextAreaText(e.target.value)} 
                         value={textAreaText}
                     />
                     <div className="card__description-btn-area">
-                        <button className="btn btn-success btn-submit" onClick={setDescription}>Submit</button>
-                        <button className="btn btn-danger" onClick={cancelEdit}>Cancel</button>
+                        <button className="card__description-btn card__description-btn-submit" onClick={setDescription}>Submit</button>
+                        <button className="card__description-btn" onClick={cancelEdit}>Cancel</button>
                     </div>
                 </>:
                     <p 

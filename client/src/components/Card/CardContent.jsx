@@ -16,7 +16,7 @@ export default props =>{
                     <CardLabel />
                 </div>
                 <CardDescription id={props.id} />
-                <CardButtons toKey={props.id} />
+                <CardButtons toKey={props.card_id} card_id={props.card_id} />
                 <CardActivity />
             </div>
 

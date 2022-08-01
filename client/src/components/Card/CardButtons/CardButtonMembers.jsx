@@ -1,92 +1,89 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../../css/style.css'
+import axios from "axios";
 //import { useCardName } from '../../../hooks/CardName/CardName'
 import { useUser } from '../../../hooks/User/useUser'
 
 export default function CardButtonMembers(props) {
 
-    const { user, setUser, userList, setUserList } = useUser()
-  //  const {cardName, setCardName, cardId, setCardId, cardMembers, setCardMembers} = useCardName()    
-    
-    let users = userList
+    const [activeMenu, setActiveMenu] = useState(false)
+    const [boardMembers, setBoardMembers] = useState([])
+    const [updateBoardMembers, setUpdateBoardMembers] = useState(false)
 
-    function toggleMembersDropdown() {
-        const dropdown = document.getElementById('card__button-members-dropdown'+props.toKey)
-        if (dropdown.style.display === 'block') {
-            dropdown.style.display = 'none'
-        } else {
-            dropdown.style.display = 'block'
-        }
-        setActiveStatus()
+    useEffect(() => setBoardMembers(boardMembers), [updateBoardMembers])
+
+    function getCardMembers() {
+
+        axios.get('http://localhost:3001/user/from-board/all', { params: { board_id: getBoardId(), card_id: props.card_id } })
+            .then(res => res.data)
+            .then(data => {
+                const users = data
+                setBoardMembers(users)
+            })
     }
 
-    function setActiveStatus(){
-        if(users.active ===undefined){
-            users[0].active = false
-            users[1].active = false
-            users[2].active = false
-            setCardMembers(users)
-        }
+    function toggleMembersMenu() {
+        setActiveMenu(!activeMenu)
     }
 
-    function renderUserList() {
-        return (
-            <ul className='card__button-members-dropdown--list'>
-                {cardMembers===null ? " " : cardMembers.map(e =>
-                    <li key={props.toKey+'-members-'+e.id} onClick={() => toggleActiveUser(e.id)} className='card__button-members-dropdown--item'>
-                        <span>
-                            <img className='img-fluid card__button-members-dropdown--image' src={e.photo} alt="User picture" />
-                            {`${e.name} ${e.lastName}`}
-                        </span>
-                        <span className='card__button-members-dropdown--active'>{e.active ?
-                            (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                            </svg>)
-                            : ''}
-                        </span>
-                        
-                    </li>
-                )}
-            </ul>
-        )
+    function getBoardId() {
+        const currentURL = window.location.href
+        const arrayURL = currentURL.split('/')
+
+        return arrayURL[arrayURL.length - 1]
+
     }
 
-    function toggleActiveUser(id){
-        setCardMembers(
-            cardMembers.map(e => {
-                if(e.id === id){
-                    return {
-                        id: e.id,
-                        name: e.name,
-                        lastName: e.lastName,
-                        photo: e.photo,
-                        active: !e.active
-                    }
-                } else{
-                    return e
+    function toggleActiveUser(userId, isMember){
+        
+        axios.post('http://localhost:3001/card/set-member', { params: { card_id: props.card_id, user_id: userId, is_member: isMember } })
+            .then(res => res.data)
+            .then(data => {
+                let users
+                if(data.success){
+                    users = boardMembers.map( e =>{
+                        if(e.user_id === userId){
+                            e.is_member = !e.is_member
+                        }
+
+                        return e
+                    })
+
+                    setBoardMembers(users)
+                    setUpdateBoardMembers(!updateBoardMembers)
                 }
             })
-        )
     }
-    
+
+    useEffect(() => getCardMembers(), [])
+
     return (
-        <div className='dropdown'>
+        <div className='card__button-dropdown-menu'>
             <button
-                onClick={toggleMembersDropdown}
-                id={'card__button-members'+props.toKey}
+                id={'card__button-members' + props.toKey}
                 className="btn btn-secondary btn-sm card__button-area-btn"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
+                onClick={toggleMembersMenu}
             >
                 Members
             </button>
 
-            <div id={"card__button-members-dropdown"+props.toKey} className="dropdown-menu card__button-members-dropdown" aria-labelledby={'card__button-members'+props.toKey}>
-                <h4 className='card__button-members-dropdown--title'>Members</h4>
-                <div className='card__button-members-dropdown--list-area'>
-                    <h5 className='card__button-members-dropdown--subtitle'>Board members</h5>
-                    {renderUserList()}
+            <div id={"card__button-members-dropdown" + props.toKey} className={activeMenu ? "card__button-dropdown" : "card__button-dropdown-closed"}>
+                <h4 className='card__button-dropdown--title'>Members</h4>
+                <div className='card__button-dropdown--list-area'>
+                    <h5 className='card__button-dropdown--subtitle' onClick={() => console.log(boardMembers)}>Board members</h5>
+                    <div className='card__button-members-dropdown-members-area'>
+                        {boardMembers.length > 0
+                            ?
+                            boardMembers.map(e => (
+                                <div className='card__button-members-dropdown-member' onClick={() => toggleActiveUser(e.user_id, e.is_member)}>
+                                    <span className='card__button-members-dropdown-member-initials'>{e.first_name[0]}{e.last_name[0]}</span>
+                                    <span className='card__button-members-dropdown-member-name'>{e.first_name} {e.last_name} ({e.login})</span>
+                                    {e.is_member ? <span className='card__button-members-dropdown-member-active'>V</span> : ""}
+                                </div>
+                            ))
+                            : 'No members to show'
+                        }
+                    </div>
                 </div>
             </div>
 

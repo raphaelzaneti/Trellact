@@ -1,3 +1,5 @@
+@use './var';
+
 svg{
     display: inline-block;
     transform: translateY(-0.2rem);
@@ -17,10 +19,13 @@ svg{
     }
 
     &-text{
+        margin-top: 10px;
         font-size: 0.8rem;
         background-color: #091e420a;
         padding-top: 0.4rem;
         padding-left: 0.6rem;
+        border-radius: 5px;
+        width: 100%;
     }
 
     &-content{
@@ -31,23 +36,51 @@ svg{
     &-initial{
         color: #aaa;
         text-decoration: dashed;
+        cursor: pointer;
+        &:hover{
+            background-color: #ddd;
+        }
     }
 
     &-text-area{
         display: block;
         margin-bottom: 0.4rem;
         height: 15rem;
-        width: 21rem;
         background-color: #091e420a;
         font-size: 0.8rem;
         resize: none;
     }
 
-    &-btn-area{
-        margin-top: 1rem;
-        margin-right: 2rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+    &-btn{
+        background-color: #ddd;
+        border: none;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 10px 20px;
+        border-radius: 10px;
+        
+        &:hover{
+            background-color: #ccc;
+            transform: translateY(-2px);
+            transition: transform 0.2s;
+        }
+
+        &-submit{
+            margin-right: 10px;
+            background-color: var(--green-main-bg);
+            color: #fff;
+
+            &:hover{
+                background-color: var(--green-header-bg);
+            }
+        }
+
+        &-area{
+            margin-top: 1rem;
+            margin-right: 2rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
     }
 }

@@ -1,32 +1,45 @@
 .card__button-members{
 
     &-dropdown{
-        width: 18rem;
-        background-color: #eee;
-        color: #666;
-    }
 
-    &-dropdown--title{
-        text-align: center;
-        font-size: 1rem;
-        border-bottom: solid 1px #ccc;
-        margin-left: 2rem;
-        margin-right: 2rem;
-        padding-bottom: 0.4rem;
-    }
+        &-members-area{
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
 
-    &-dropdown--list-area{
-        margin-left: 1rem;
-    }
+        &-member{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            align-items: center;
 
-    &-dropdown--subtitle{
-        font-size: 0.8rem;
-        font-weight: bold;
-    }
-    
-    &-dropdown--list{
-        list-style: none;
-        padding-left: 0.4rem;
+            &:hover{
+                cursor: pointer;
+                background-color: #ccc;
+            }
+
+            &-initials{
+                width: 25px;
+                margin-right: 5px;
+                color: #fff;
+                background-color: blue;
+                padding: 3px;
+                border-radius: 100%;
+            }
+
+            &-active{
+                background-image: url('../assets/icons/check.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-left: auto;
+                justify-self: flex-end;
+                color: transparent;
+                width: 14px;
+                opacity: 0.3;
+                padding: 5px;
+            }
+        }
     }
 
     &-dropdown--item{

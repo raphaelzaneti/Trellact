@@ -22,4 +22,45 @@
         background-color: #aaa;
         border-color: #aaa;
     }
+
+    &-dropdown{
+        width: 100%;
+        background-color: #eee;
+        color: #666;
+        display: block;
+        height: fit-content;
+        min-height: 100px;
+        transition: height 0.3s, visibility 2s;
+        
+        &-menu{
+            height: fit-content;
+            min-height: 40px;
+        }
+
+        &-closed{
+            visibility: hidden;
+            height: 0;
+            transition: height 0.5s;
+        }
+
+    }
+
+    &-dropdown--title{
+        text-align: center;
+        font-size: 14px;
+        border-bottom: solid 1px #ccc;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding-bottom: 6px;
+    }
+
+    &-dropdown--subtitle{
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    
+    &-dropdown--list-area{
+        margin-bottom: 20px;
+    }
 }
