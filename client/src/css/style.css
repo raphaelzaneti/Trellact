@@ -215,6 +215,119 @@
   margin-right: 2rem;
   height: 100%;
 }
+.header__create--dropdown {
+  position: absolute;
+  background-color: transparent;
+  width: 20%;
+  left: 80%;
+  z-index: 1;
+  padding-right: 2.2rem;
+}
+.header__create--dropdown-bg {
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+.header__create--element {
+  cursor: pointer;
+  padding: 6px 10px;
+}
+.header__create--element:hover {
+  background-color: #ddd;
+}
+.header__create--element p {
+  color: #888;
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 0;
+}
+.header__create--main-title {
+  color: #888;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  border-bottom: solid 1px #aaa;
+  margin-bottom: 20px;
+}
+.header__create--title-area {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+.header__create--input-area {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.header__create--input-area label, .header__create--input-area p {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.header__create--input-area label span, .header__create--input-area p span {
+  color: red;
+}
+.header__create--input-area input:hover {
+  background-color: #e1e1e1;
+}
+.header__create--input-area button {
+  color: #fff;
+  background-color: #bbb;
+  border-radius: 5px;
+}
+.header__create--input-area button:hover {
+  background-color: #ccc;
+  color: #fff;
+}
+.header__create--input-area-colors {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.header__create--input-area-color {
+  display: flex;
+  width: 20%;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.header__create--input-area-color:hover {
+  opacity: 0.7;
+}
+.header__create--input-area-color-red {
+  background-color: var(--red-main-bg);
+}
+.header__create--input-area-color-blue {
+  background-color: var(--blue-main-bg);
+}
+.header__create--input-area-color-green {
+  background-color: var(--green-main-bg);
+}
+.header__create--input-area-color-yellow {
+  background-color: var(--yellow-main-bg);
+}
+.header__create--input-area-color-gray {
+  background-color: var(--gray-main-bg);
+}
+.header__create--input-area-color-purple {
+  background-color: var(--purple-main-bg);
+}
+.header__create--input-area-color-black {
+  background-color: var(--black-main-bg);
+}
+.header__create--input-area-color-pink {
+  background-color: var(--pink-main-bg);
+}
 
 @media screen and (max-width: 970px) {
   #boards > span {
@@ -414,7 +527,7 @@
   justify-content: space-between;
 }
 .card__button-members-dropdown--item:hover {
-  background-color: #6662;
+  background-color: rgba(102, 102, 102, 0.1333333333);
   cursor: pointer;
 }
 .card__button-members-dropdown--image {
@@ -532,7 +645,7 @@ svg {
 .card__description-text {
   margin-top: 10px;
   font-size: 0.8rem;
-  background-color: #091e420a;
+  background-color: rgba(9, 30, 66, 0.0392156863);
   padding-top: 0.4rem;
   padding-left: 0.6rem;
   border-radius: 5px;
@@ -554,7 +667,7 @@ svg {
   display: block;
   margin-bottom: 0.4rem;
   height: 15rem;
-  background-color: #091e420a;
+  background-color: rgba(9, 30, 66, 0.0392156863);
   font-size: 0.8rem;
   resize: none;
 }
@@ -986,11 +1099,11 @@ svg {
 }
 
 .trellact-color {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 #trellact-logo:hover {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .board__details-theme {
@@ -1146,7 +1259,7 @@ svg {
   justify-content: space-between;
 }
 .workspace__card-board-workspace i {
-  color: #e6e600;
+  color: rgb(230, 230, 0);
   align-self: center;
 }
 .workspace__card-board-workspace i:hover {

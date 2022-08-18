@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import { Logo } from '../index.js'
 import '../../css/style.css'
+import HeaderNewBoardBtn from '../HeaderNewBoardBtn/HeaderNewBoardBtn.jsx'
 
 export default props => {
 
@@ -24,7 +25,7 @@ export default props => {
                 <Logo />
             </div>
             <div class="header__final-half">
-                <button id="new-board-btn" className="btn">New Board</button>
+                <HeaderNewBoardBtn />
             </div>
         </div>
     )
