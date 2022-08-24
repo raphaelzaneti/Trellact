@@ -7,6 +7,7 @@ router.get('/create', ListsController.createList)
 router.get('/positions', ListsController.getAllPositions)
 router.post('/update-positions', ListsController.updatePositions)
 router.post('/edit/:id', ListsController.editListName)
+router.get('/by-card', ListsController.getListByCard)
 router.get('/remove', ListsController.removeList)
 router.get('/all', ListsController.getAllLists)
 

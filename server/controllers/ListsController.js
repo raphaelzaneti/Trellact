@@ -125,18 +125,21 @@ module.exports = class ListsController {
 
     static async getAllLists(req, res) {
         const board = req.query.board
-        const query = `SELECT * FROM Lists WHERE board_id = ${board}`
+        const sortedList = Boolean(req.query.sorted)
+
+        let query = `SELECT * FROM Lists WHERE board_id = ${board}`
+        sortedList === true ? query = query+' ORDER BY position' : null
 
         await conn.query(query, async (err, data) => {
             if (err) {
                 console.log(err)
             } else {
                 console.log(`Got all lists from board ${board}`)
-
+                
                 const dbCheck = await data.map(e => {
                     return { position: e.position, list_id: e.list_id, list_name: e.list_name }
                 })
-                console.log(dbCheck)
+                
                 res.send(dbCheck)
             }
         })
@@ -150,6 +153,20 @@ module.exports = class ListsController {
 
         runQuery(query, `List ${name} removed from db`)
         res.send('list ' + name + ' removed')
+    }
+
+    static async getListByCard(req, res){
+        const cardId = req.query.card_id
+
+        const query = `SELECT list_id FROM CARDS WHERE card_id=${cardId}`
+
+        await conn.query(query, async (err, data) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(data)
+            }
+        })
     }
 
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import axios from 'axios'
 import { useUpdate } from "../../hooks/useUpdate/useUpdate";
 import CardEditModalMembers from "../CardEditModalMembers/CardEditModalMembers";
+import CardEditModalMove from "../CardEditModalMove/CardEditModalMove";
 
 export default props => {
 
@@ -58,7 +59,7 @@ export default props => {
                             <button className="card__edit-modal_settings-btn">Edit labels</button>
                             
                             <CardEditModalMembers cardId={currentCardId} />
-                            <button className="card__edit-modal_settings-btn">Move</button>
+                            <CardEditModalMove cardId={currentCardId} />
                             <button className="card__edit-modal_settings-btn" onClick={removeCard} data-bs-dismiss="modal">Delete</button>
                         </div>
                     </div>
