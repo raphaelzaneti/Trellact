@@ -44,7 +44,7 @@ module.exports = class ListsController {
         const nOfLists = req.body.data.total_lists[0].value
         let allLists
 
-        const getPositionsQuery = `select list_id, position from lists where board_id=${board}`
+        const getPositionsQuery = `SELECT list_id, position FROM lists WHERE board_id=${board}`
         console.log(getPositionsQuery)
 
         await conn.query(getPositionsQuery, async (err, data) => {

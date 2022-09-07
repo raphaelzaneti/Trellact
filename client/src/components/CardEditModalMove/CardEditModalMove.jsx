@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import '../../css/style.css'
+import { useUpdate } from '../../hooks/useUpdate/useUpdate'
 
 export default props => {
 
@@ -10,6 +11,8 @@ export default props => {
     const [listSelectValue, setListSelectValue] = useState(currentListId)
     const [allPositions, setAllPositions] = useState(null)
     const [cardSelectValue, setCardSelectValue] = useState(props.cardId)
+
+    const {update, setUpdate} = useUpdate()
    
     function toggleDropdown() {
         if (!moveDropdownActive) {
@@ -45,19 +48,28 @@ export default props => {
     }
 
     function handleCardChange(e){
-        const cardId = e.target === undefined ? e : e.target.value 
-        setCardSelectValue(cardId)
+        const cardPosition = e.target === undefined ? e : e.target.value 
+        setCardSelectValue(cardPosition)
     }
 
     async function moveCard(){
-
-        const currentPosition = await getCurrentPosition()
-
+        const cardCurrentPosition = await getCardPositionFromDb()
         axios.post('http://localhost:3001/card/move-card', { params: {
             card_id: props.cardId, current_list_id: currentListId, new_list_id: listSelectValue, 
-            current_position: currentPosition, new_position: cardSelectValue
+            current_position: cardCurrentPosition, new_position: cardSelectValue
         } })
-        console.log('ok')
+            .then(res => res.data)
+            .then(data => data.success === true ? setUpdate(!update) : null)
+        
+    }
+
+    async function getCardPositionFromDb(){
+        let cardPosition
+        await axios.get('http://localhost:3001/card/position-by-id', {params: {card_id: props.cardId}})
+            .then(res => res.data)
+            .then(data => cardPosition = data.card_position)
+        
+        return cardPosition
     }
 
     async function getCurrentPosition(){
@@ -67,9 +79,7 @@ export default props => {
                 cardPosition = card.card_position
             }
         })
-
         return cardPosition
-
     }
 
     function getBoardId() {
@@ -108,7 +118,7 @@ export default props => {
                             {
                                 allPositions !== null
                                     ? allPositions.map(card => (
-                                        <option key={card.card_id} value={card.card_id}>
+                                        <option key={card.card_position} value={card.card_position}>
                                             {card.card_position} {card.card_id === props.cardId ? '(current)' : ''}
                                         </option>
                                     ))
