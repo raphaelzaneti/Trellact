@@ -217,6 +217,22 @@
                 background-color: #efefef;
                 color: #555;
             }
+            
+            & button{
+                font-size: 14px;
+                margin-top: 6px;
+                cursor: pointer;
+                width: 50%;
+                background-color: var(--blue-main-bg);
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 5px 0;
+
+                &:hover{
+                    background-color: var(--blue-header-bg); 
+                }
+            }
         }
 
     }

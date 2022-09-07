@@ -95,7 +95,16 @@ module.exports = class CardController{
                 res.send(data[0].max_card_position.toString())
             }
         })
-                
+    }
+
+    static async setPosition(req, res){
+        const cardId = req.body.params.card_id
+        const currentList = req.body.params.current_list_id
+        const newList = Number(req.body.params.new_list_id)
+        const currentPosition = req.body.params.current_position
+        const newPosition = Number(req.body.params.new_position)
+        
+        console.log(req.body.params)
     }
 
     static async removeCard(req, res){

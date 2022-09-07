@@ -888,6 +888,20 @@ svg {
   background-color: #efefef;
   color: #555;
 }
+.card__edit-modal_edit-move-content button {
+  font-size: 14px;
+  margin-top: 6px;
+  cursor: pointer;
+  width: 50%;
+  background-color: var(--blue-main-bg);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 0;
+}
+.card__edit-modal_edit-move-content button:hover {
+  background-color: var(--blue-header-bg);
+}
 
 .card__content-label {
   display: inline-block;

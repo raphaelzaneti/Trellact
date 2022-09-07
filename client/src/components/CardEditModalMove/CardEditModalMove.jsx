@@ -9,7 +9,8 @@ export default props => {
     const [currentListId, setCurrentListid] = useState(null)
     const [listSelectValue, setListSelectValue] = useState(currentListId)
     const [allPositions, setAllPositions] = useState(null)
-
+    const [cardSelectValue, setCardSelectValue] = useState(props.cardId)
+   
     function toggleDropdown() {
         if (!moveDropdownActive) {
             getAllLists()
@@ -41,6 +42,34 @@ export default props => {
         axios.get('http://localhost:3001/card/bylist', { params: { list_id: listId } })
             .then(res => res.data)
             .then(data => setAllPositions(data))
+    }
+
+    function handleCardChange(e){
+        const cardId = e.target === undefined ? e : e.target.value 
+        setCardSelectValue(cardId)
+    }
+
+    async function moveCard(){
+
+        const currentPosition = await getCurrentPosition()
+
+        axios.post('http://localhost:3001/card/move-card', { params: {
+            card_id: props.cardId, current_list_id: currentListId, new_list_id: listSelectValue, 
+            current_position: currentPosition, new_position: cardSelectValue
+        } })
+        console.log('ok')
+    }
+
+    async function getCurrentPosition(){
+        let cardPosition
+        await allPositions.map(card => {
+            if(card.card_id === props.cardId){
+                cardPosition = card.card_position
+            }
+        })
+
+        return cardPosition
+
     }
 
     function getBoardId() {
@@ -75,12 +104,13 @@ export default props => {
                                     : ""
                             }
                         </select>
-                        <p onClick={() => console.log(allPositions)}>test</p>
-                        <select name="destination-position">
+                        <select name="destination-position" value={cardSelectValue} onChange={(e) => handleCardChange(e)}>
                             {
                                 allPositions !== null
                                     ? allPositions.map(card => (
-                                        <option>{card.card_position} {card.card_id === props.cardId ? '(current)' : ''}</option>
+                                        <option key={card.card_id} value={card.card_id}>
+                                            {card.card_position} {card.card_id === props.cardId ? '(current)' : ''}
+                                        </option>
                                     ))
                                     : ""
                             }
@@ -90,6 +120,7 @@ export default props => {
                                     : <> {Number(listSelectValue) === currentListId ? "aaaaaaa" : <option>{allPositions.length + 1}</option>}</>
                             }
                         </select>
+                        <button onClick={moveCard}>Move</button>
                     </div>
                 </article>
                 : ""
