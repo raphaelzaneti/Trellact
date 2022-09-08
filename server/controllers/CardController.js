@@ -124,6 +124,10 @@ module.exports = class CardController {
         const getCardsPositionQuery = `SELECT card_id, card_position FROM cards WHERE list_id=${newList} ORDER BY card_position`
         const getPastListPositionQuery = `SELECT card_id, card_position FROM cards WHERE list_id=${currentList} ORDER BY card_position`
 
+        if (newList === currentList && newPosition === currentPosition) {
+            return
+        }
+
         await conn.query(getCardsPositionQuery, async (err, data) => {
             if (err) {
                 console.log(err)
@@ -137,7 +141,7 @@ module.exports = class CardController {
                 } catch (error) {
                     successQuery = false
                 } finally {
-                    res.send({success: successQuery})
+                    res.send({ success: successQuery })
                 }
             }
         })
@@ -165,7 +169,7 @@ module.exports = class CardController {
                     queryChangeCardPosition = `UPDATE cards 
                         SET card_position = 
                             CASE card_id
-                                ${allCards.map((card) => ' WHEN '+card.card_id+ ' THEN '+ card.card_position)}
+                                ${allCards.map((card) => ' WHEN ' + card.card_id + ' THEN ' + card.card_position)}
                             END
                         WHERE list_id=${newList} AND card_id IN(${allCards.map((card) => ' ' + card.card_id)})
                     `
@@ -181,6 +185,38 @@ module.exports = class CardController {
                     }
                 })
 
+            } else if (newList === currentList) {
+
+                if (newPosition < currentPosition) {
+                    allCards.map(card => {
+                        if (card.card_position >= newPosition && card.card_position < currentPosition) {
+                            card.card_position++
+                        }
+                        return card
+                    })
+                } else {
+                    allCards.map(card => {
+                        if (card.card_position <= newPosition && card.card_position > currentPosition) {
+                            card.card_position = card.card_position - 1
+                        }
+                        return card
+                    })
+                }
+                allCards.map(card => {
+                    if (card.card_id === cardId) {
+                        card.card_position = newPosition
+                    }
+                    return card
+                })
+
+                queryChangeCardPosition = `UPDATE cards 
+                        SET card_position = 
+                            CASE card_id
+                                ${allCards.map((card) => ' WHEN ' + card.card_id + ' THEN ' + card.card_position)}
+                            END
+                        WHERE list_id=${newList} AND card_id IN(${allCards.map((card) => ' ' + card.card_id)})
+                    `
+                queryChangeCardPosition = queryChangeCardPosition.replace(/, WHEN/gi, ' WHEN')
             }
 
             runPositionQuery(queryChangeCardPosition)
@@ -189,7 +225,7 @@ module.exports = class CardController {
 
         async function runPositionQuery(positionQuery) {
             await conn.query(positionQuery, async (err, data) => {
-                
+
                 if (err) {
                     console.log(err)
                 } else {
@@ -212,7 +248,7 @@ module.exports = class CardController {
                 let querySortPastList = `UPDATE cards
                     SET card_position = 
                         CASE card_id
-                            ${allPastListCards.map((card) => ' WHEN '+ card.card_id + ' THEN ' + card.card_position)}
+                            ${allPastListCards.map((card) => ' WHEN ' + card.card_id + ' THEN ' + card.card_position)}
                         END
                     WHERE list_id=${currentList} AND card_id IN(${allPastListCards.map((card) => ' ' + card.card_id)})
                 `

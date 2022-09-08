@@ -10,7 +10,7 @@ export default props => {
     const [currentListId, setCurrentListid] = useState(null)
     const [listSelectValue, setListSelectValue] = useState(currentListId)
     const [allPositions, setAllPositions] = useState(null)
-    const [cardSelectValue, setCardSelectValue] = useState(props.cardId)
+    const [cardSelectValue, setCardSelectValue] = useState(1)
 
     const {update, setUpdate} = useUpdate()
    
@@ -130,7 +130,7 @@ export default props => {
                                     : <> {Number(listSelectValue) === currentListId ? "aaaaaaa" : <option>{allPositions.length + 1}</option>}</>
                             }
                         </select>
-                        <button onClick={moveCard}>Move</button>
+                        <button onClick={moveCard} data-bs-dismiss="modal">Move</button>
                     </div>
                 </article>
                 : ""
