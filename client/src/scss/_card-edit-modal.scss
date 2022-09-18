@@ -65,6 +65,7 @@
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 1rem;
+        width: 170px;
 
         &-btn{
             border: none;
@@ -85,6 +86,80 @@
             &+article{
                 margin-top: -8px;
             }
+        }
+    }
+
+    &_edit-labels{
+        background-color: #eee;
+        border-radius: 2px;
+        min-height: 100px;
+
+        &-header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-bottom: 5px;
+            border-bottom: solid 1px #bbb;
+            margin: 5px 8px;
+            
+            & h4{
+                text-align: center;
+                width: 100%;
+                font-weight: 400;
+                font-size: 16px;
+                margin-bottom: 0;
+            }
+
+            & button{
+                font-size: 12px;
+                font-weight: 300;
+                color: #aaa;
+                border: none;
+                background-color: transparent;
+
+                &:hover{
+                    color: #555;
+                }
+            }
+        }
+
+        &-content{
+            margin-left: 5px;
+            margin-right: 5px;    
+            margin-bottom: 10px;
+            & > span {
+                font-size: 12px;
+                font-weight: 600;
+            }
+            
+            &-labels-area{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            &-label{
+                display: flex;
+                justify-content: space-between;
+                width: 60px;
+                height: 20px;
+                color: #fff;
+                font-size: 12px;
+                border-radius: 5px;
+                padding-left: 5px;
+                cursor: pointer;
+
+                &>.label-active{
+                    opacity: 0.8;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                }
+            }
+
+
         }
     }
 
