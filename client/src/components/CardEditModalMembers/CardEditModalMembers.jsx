@@ -3,14 +3,13 @@ import axios from "axios";
 import { useUpdate } from "../../hooks/useUpdate/useUpdate";
 
 export default props => {
-    const [activeMembersEdit, setActiveMembersEdit] = useState(false)
     const [boardMembers, setBoardMembers] = useState(null)
     const [updateBoardMembers, setUpdateBoardMembers] = useState(false)
 
     useEffect(() => setBoardMembers(boardMembers), [updateBoardMembers])
 
     function toggleMembersEdit() {
-        setActiveMembersEdit(!activeMembersEdit)
+        props.activeButton === 'members' ? props.setActiveButton(null) : props.setActiveButton('members')
         getAllBoardMembers()
     }
 
@@ -56,7 +55,7 @@ export default props => {
     return (
         <>
             <button className="card__edit-modal_settings-btn" onClick={toggleMembersEdit}>Edit members</button>
-            <article className={`${activeMembersEdit ? 'd-block' : 'd-none'} card__edit-modal_edit-members`}>
+            <article className={`${props.activeButton === 'members' ? 'd-block' : 'd-none'} card__edit-modal_edit-members`}>
                 <div className="card__edit-modal_edit-members-header">
                     <h4>Members</h4>
                     <button onClick={toggleMembersEdit}>X</button>

@@ -9,6 +9,7 @@ export default props => {
 
     const [cardName, setCardName] = useState(props.cardName)
     const [currentCardId, setCurrentCardId] = useState(props.cardId)
+    const [activeButton, setActiveButton] = useState(null)
     const {update, setUpdate} = useUpdate()
 
     function changeCardName(e) {
@@ -57,9 +58,9 @@ export default props => {
                             <button className="card__edit-modal_btn card__edit-modal_btn-save" onClick={updateCardName}>Save</button>
                         </div>
                         <div className="card__edit-modal_settings">
-                            <CardEditModalLabels cardId={currentCardId} />
-                            <CardEditModalMembers cardId={currentCardId} />
-                            <CardEditModalMove cardId={currentCardId} />
+                            <CardEditModalLabels cardId={currentCardId} activeButton={activeButton} setActiveButton={setActiveButton} />
+                            <CardEditModalMembers cardId={currentCardId} activeButton={activeButton} setActiveButton={setActiveButton} />
+                            <CardEditModalMove cardId={currentCardId} activeButton={activeButton} setActiveButton={setActiveButton} />
                             <button className="card__edit-modal_settings-btn" onClick={removeCard} data-bs-dismiss="modal">Delete</button>
                         </div>
                     </div>

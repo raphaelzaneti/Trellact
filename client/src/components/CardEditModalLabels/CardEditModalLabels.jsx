@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react"
 import axios from "axios";
 
 export default props => {
-
-    const [activeLabelEdit, setActiveLabelEdit] = useState(false)
     const [activeLabels, setActiveLabels] = useState(null)
     const [updateLabels, setUpdateLabels] = useState(false)
 
     const labelColors = ['red', 'blue', 'green', 'yellow', 'gray', 'purple', 'black', 'pink']
 
     function toggleLabelsEdit() {
-        setActiveLabelEdit(!activeLabelEdit)
+        props.activeButton === 'labels' ? props.setActiveButton(null) : props.setActiveButton('labels')
     }
 
     function getCardLabels() {
@@ -41,7 +39,7 @@ export default props => {
     return (
         <>
             <button className="card__edit-modal_settings-btn" onClick={toggleLabelsEdit}>Edit labels</button>
-            <article className={`${activeLabelEdit ? 'd-block' : 'd-none'} card__edit-modal_edit-labels`}>
+            <article className={`${props.activeButton === 'labels' ? 'd-block' : 'd-none'} card__edit-modal_edit-labels`}>
                 <div className="card__edit-modal_edit-labels-header">
                     <h4>Labels</h4>
                     <button onClick={toggleLabelsEdit}>X</button>

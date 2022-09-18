@@ -15,11 +15,10 @@ export default props => {
     const {update, setUpdate} = useUpdate()
    
     function toggleDropdown() {
-        if (!moveDropdownActive) {
+        if (props.activeButton !== 'move') {
             getAllLists()
         }
-
-        setMoveDropdownActive(!moveDropdownActive)
+        props.activeButton === 'move' ? props.setActiveButton(null) : props.setActiveButton('move')
     }
 
     function getAllLists() {
@@ -94,12 +93,12 @@ export default props => {
     return (
         <>
             <button className="card__edit-modal_settings-btn" onClick={toggleDropdown}>Move</button>
-            {moveDropdownActive
+            {props.activeButton === 'move'
                 ?
                 <article className='card__edit-modal_edit-move'>
                     <div className="card__edit-modal_edit-move-header">
                         <h4 >Move card</h4>
-                        <button onClick={() => setMoveDropdownActive(false)}>X</button>
+                        <button onClick={() => props.setActiveButton(null)}>X</button>
                     </div>
                     <div className="card__edit-modal_edit-move-content">
                         <span>Select destination</span>
