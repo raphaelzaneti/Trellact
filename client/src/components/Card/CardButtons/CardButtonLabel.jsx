@@ -6,10 +6,9 @@ export default function CardButtonLabel(props) {
 
     const [activeMenu, setActiveMenu] = useState(false)
     const [activeLabels, setActiveLabels] = useState([])
+    const [updateLabels, setUpdateLabels] = useState(false)
     
     const labelColors = ['red', 'blue', 'green', 'yellow', 'gray', 'purple', 'black', 'pink']
-
-    useEffect(() => getCardLabels(), [])
 
     function toggleLabelsMenu() {
         setActiveMenu(!activeMenu)
@@ -22,6 +21,23 @@ export default function CardButtonLabel(props) {
                 setActiveLabels(data)
             })
     }
+
+    function changeCardLabel(e){
+        
+        const labelColor = e.target.id.split('-')[1]
+        const isActive = e.target.innerHTML !== ' ' ? true : false 
+        const labelCaption = e.target.innerText
+        const labelId = isActive ? e.target.getAttribute('label_id') : null
+        
+        axios.post('http://localhost:3001/labels/set-labels', {params: {is_active: isActive, label_id: labelId, 
+            card_id: props.card_id, label_color: labelColor, label_caption: labelCaption}}
+        )
+            .then(res => res.data)
+            .then(data => setUpdateLabels(!updateLabels))
+
+    }
+
+    useEffect(() => getCardLabels(), [updateLabels])
 
     return (
         <div className="card__button-dropdown-menu">
@@ -49,7 +65,7 @@ export default function CardButtonLabel(props) {
                                 }
                             })
 
-                            return (<span id={'label-'+color} label_id={labelId} className={`label-color label-${color}`}>{labelCaption} {labelIsActive ? <span className='label-active'></span>: ''}</span>)
+                            return (<span id={'label-'+color} label_id={labelId} className={`label-color label-${color}`} onClick={(e) => changeCardLabel(e)}>{labelCaption} {labelIsActive ? <span className='label-active'></span>: ''}</span>)
                         })
                     }
                 </div>}

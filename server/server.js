@@ -10,11 +10,13 @@ const listRoutes = require('./routes/listRoutes')
 const cardRoutes = require('./routes/cardRoutes')
 const boardsRoutes = require('./routes/boardsRoutes')
 const userRoutes = require('./routes/userRoutes')
+const labelRoutes = require('./routes/labelsRoutes')
 
 app.use('/lists', listRoutes)
 app.use('/card', cardRoutes)
 app.use('/boards', boardsRoutes)
 app.use('/user', userRoutes)
+app.use('/labels', labelRoutes)
 
 app.get('/test', (req, res) =>{
     console.log('conected')
