@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { Logo } from '../index.js'
 import '../../css/style.css'
 import HeaderNewBoardBtn from '../HeaderNewBoardBtn/HeaderNewBoardBtn.jsx'
+import HeaderSearch from '../HeaderSearch/HeaderSearch.jsx'
 
 export default props => {
 
@@ -15,10 +16,7 @@ export default props => {
                 </Link>
                 <button id="boards" className="btn"><i className="fab fa-trello"></i> <span>Boards</span></button>
 
-                <div id="search" className="header__search-area">
-                    <input type="text" className="header__search-input" />
-                    <button id="search-btn" className="btn header__search-btn"><i class="fas fa-search"></i></button>
-                </div>
+                <HeaderSearch />
             </div>
 
             <div className="header__logo-area">

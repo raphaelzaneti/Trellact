@@ -30,19 +30,6 @@
         flex-direction: row;
     }
 
-    &__search-area{
-        margin-left: 4rem;
-        &>*{
-            height: 70%;
-        }
-    }
-
-    &__search-input{
-        border: none;
-        border-radius: 3%;
-        margin-right: 0.2rem;
-    }
-
     &__logo-area{
         grid-area: logo;
         display: inline-block;
@@ -205,12 +192,5 @@
 @media screen and (max-width: 970px) {
     #boards > span{
         display: none;
-    }
-}
-
-@media screen and (max-width: 630px){
-    .header__search-area > input{
-        display: inline-block;
-        width: 30px;
     }
 }

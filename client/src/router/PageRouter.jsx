@@ -14,7 +14,6 @@ function PageRouter() {
         <Routes>
           {
             boards.map(e => {
-                console.log(`/board/${e.board_id}`  )
                 return <Route path={`/board/${e.board_id}`} element={<BoardRouter board_id={e.board_id} board_name={e.board_name} />} />
             })
           }
