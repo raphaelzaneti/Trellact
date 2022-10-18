@@ -17,7 +17,7 @@ export default props =>{
                 </div>
                 <CardDescription id={props.id} />
                 <CardButtons toKey={props.card_id} card_id={props.card_id} />
-                <CardActivity />
+                <CardActivity card_id={props.card_id} />
             </div>
 
         </>

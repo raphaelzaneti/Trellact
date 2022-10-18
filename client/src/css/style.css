@@ -619,7 +619,7 @@
 .card__comments-comment {
   display: grid;
   grid-template-areas: "pic user time" "pic content content" "pic btn btn";
-  grid-template-columns: 7% 70% 23%;
+  grid-template-columns: 6% 70% 24%;
   margin-bottom: 20px;
 }
 

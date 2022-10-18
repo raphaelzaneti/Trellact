@@ -1,17 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CardComment from "../CardComment/CardComment";
 import '../../../css/style.css'
 import { useUser } from "../../../hooks/User/useUser";
+import axios from "axios";
 
 
 export default function CardActivity(props){
 
+    const [allComments, setAllComments] = useState([])
     const [commentInputActive, setCommentInputActive] = useState(false)
     const [commentText, setCommentText] = useState("")
     const {user, setUser} = useUser()
 
+    function getAllComments(){
+        axios.get('http://localhost:3001/comment/from-card/all', {params: {card_id: props.card_id}})
+            .then(res => res.data)
+            .then(data => setAllComments(data))
+    }
+
     function handleInputChange(e){
         setCommentText(e.target.value)
+    }
+
+    function submitComment(){
+        axios.post('http://localhost:3001/comment/save', {params: {
+            card_id: props.card_id,
+            user_id: user.user_id,
+            content: commentText
+        }})
+            .then(res => res.data)
+            .then(data => data.sucess!==false ? updateCommentList() : null)
+
+    }
+
+    function updateCommentList(){
+        setCommentText('')
+        getAllComments()
     }
 
     if(commentInputActive){
@@ -22,6 +46,8 @@ export default function CardActivity(props){
             }
           })
     }
+
+    useEffect(() => getAllComments(), [])
 
     return (
         <div className="card__activity">
@@ -46,14 +72,25 @@ export default function CardActivity(props){
                     <button 
                         className={`${commentInputActive ? 'card__activity-comment-text-button' : 'd-none'}`}
                         disabled={commentText === '' ? true : false}
-                        onClick={() => console.log(user)}
+                        onClick={() => submitComment()}
                         id='comment-input-button'
                     >Save</button>
                 </div>
             </div>
             <div className="card__comments">
-                <CardComment user={user} text="abcd this is a comment" />
-                <CardComment user={user} text="bcde this is a comment"/>
+                {
+                    allComments.length > 0 ? 
+                        allComments.map(e => 
+                            <CardComment 
+                                comment_id={e.comment_id} 
+                                first_name={e.first_name} 
+                                last_name={e.last_name} 
+                                text={e.content} 
+                                time={e.post_time} 
+                            />
+                        )
+                        : ''
+                }
             </div>
         </div>
     )
