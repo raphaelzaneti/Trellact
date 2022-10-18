@@ -1,21 +1,23 @@
-.card__activity{
+@use "./var";
+
+.card__activity {
     margin-top: 20px;
     margin-left: 20px;
 
-    &-icon{
+    &-icon {
         display: inline-block;
         margin-right: 0.4rem;
     }
 
-    &-title{
+    &-title {
         margin-left: 1rem;
         font-size: 1rem;
         font-weight: 600;
-        display: inline-block; 
+        display: inline-block;
         margin: 0;
     }
 
-    &-comment-area{
+    &-comment-area {
         margin-top: 1rem;
         margin-bottom: 1rem;
         display: flex;
@@ -23,22 +25,65 @@
         justify-content: space-between;
     }
 
-    &-user-image{
-        width: 2rem;
+    &-comment-member {
+        font-size: 12px;
         height: 2rem;
+        width: 2rem;
+        color: #fff;
+        background-color: blue;
+        padding: 5px;
         border-radius: 100%;
+        margin-right: 4px;
     }
 
-    &-comment-text{
+    &-comment-text {
+        background-color: transparent;
         font-size: 0.8rem;
-        height: 2rem;
+        height: 60%;
         width: 100%;
-        margin-left: 0.6rem;
+        padding-left: 0.4rem;
+        padding-top: 0.2rem;
         resize: none;
+        border: none;
+        outline: none;
+
+        &-area {
+            border-radius: 5px;
+            height: 3rem;
+            margin-left: 0.6rem;
+            width: 100%;
+            background-color: #fff;
+
+            &-focus {
+                height: 7rem;
+            }
+        }
+
+        &-button {
+            background-color: #ddd;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 12px;
+            margin-left: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            width: 10%;
+            color: #fff;
+            background-color: var(--blue-main-bg);
+            cursor: pointer;
+
+            &:disabled{
+                background-color: #ccc;
+            }
+
+            &:hover {
+                background-color: var(--blue-header-bg);
+            }
+        }
     }
 }
 
-.card__comments{
+.card__comments {
     font-size: 0.8rem;
     margin-top: 1rem;
 }

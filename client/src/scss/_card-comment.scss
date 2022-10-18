@@ -4,19 +4,31 @@
         "pic user time"
         "pic content content"
         "pic btn btn";
-    grid-template-columns: 10% 70% 20%;
+    grid-template-columns: 7% 70% 23%;
+    margin-bottom: 20px;
 }
 
 .card__activity-user-image{
     grid-area: pic;
 }
 
-.card_comment{
+.card__comment{
+    &-initials{
+        font-size: 12px;
+        height: 2rem;
+        width: 2rem;
+        color: #fff;
+        background-color: blue;
+        padding: 5px;
+        border-radius: 100%;
+        margin-right: 4px;
+    }
+
     &-user{
         margin-left: 0.4rem;
         grid-area: user;
         font-size: 1rem;
-        font-weight: bold;
+        font-weight: 500;
     }
 
     &-time{
@@ -27,10 +39,14 @@
 
     &-content{
         margin-left: 0.4rem;
+        padding-top: 0.4rem;
+        padding-left: 0.4rem;
         grid-area: content;
         display: inline-block;
         background-color: #fff;
         border-color: #aaa;
         width: 100%;
+        min-height: 2rem;
+        border-radius: 5px;
     }
 }

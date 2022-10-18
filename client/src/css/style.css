@@ -381,17 +381,55 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.card__activity-user-image {
-  width: 2rem;
+.card__activity-comment-member {
+  font-size: 12px;
   height: 2rem;
+  width: 2rem;
+  color: #fff;
+  background-color: blue;
+  padding: 5px;
   border-radius: 100%;
+  margin-right: 4px;
 }
 .card__activity-comment-text {
+  background-color: transparent;
   font-size: 0.8rem;
-  height: 2rem;
+  height: 60%;
   width: 100%;
-  margin-left: 0.6rem;
+  padding-left: 0.4rem;
+  padding-top: 0.2rem;
   resize: none;
+  border: none;
+  outline: none;
+}
+.card__activity-comment-text-area {
+  border-radius: 5px;
+  height: 3rem;
+  margin-left: 0.6rem;
+  width: 100%;
+  background-color: #fff;
+}
+.card__activity-comment-text-area-focus {
+  height: 7rem;
+}
+.card__activity-comment-text-button {
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  width: 10%;
+  color: #fff;
+  background-color: var(--blue-main-bg);
+  cursor: pointer;
+}
+.card__activity-comment-text-button:disabled {
+  background-color: #ccc;
+}
+.card__activity-comment-text-button:hover {
+  background-color: var(--blue-header-bg);
 }
 
 .card__comments {
@@ -581,31 +619,46 @@
 .card__comments-comment {
   display: grid;
   grid-template-areas: "pic user time" "pic content content" "pic btn btn";
-  grid-template-columns: 10% 70% 20%;
+  grid-template-columns: 7% 70% 23%;
+  margin-bottom: 20px;
 }
 
 .card__activity-user-image {
   grid-area: pic;
 }
 
-.card_comment-user {
+.card__comment-initials {
+  font-size: 12px;
+  height: 2rem;
+  width: 2rem;
+  color: #fff;
+  background-color: blue;
+  padding: 5px;
+  border-radius: 100%;
+  margin-right: 4px;
+}
+.card__comment-user {
   margin-left: 0.4rem;
   grid-area: user;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
 }
-.card_comment-time {
+.card__comment-time {
   grid-area: time;
   font-size: 0.6rem;
   text-align: end;
 }
-.card_comment-content {
+.card__comment-content {
   margin-left: 0.4rem;
+  padding-top: 0.4rem;
+  padding-left: 0.4rem;
   grid-area: content;
   display: inline-block;
   background-color: #fff;
   border-color: #aaa;
   width: 100%;
+  min-height: 2rem;
+  border-radius: 5px;
 }
 
 svg {
