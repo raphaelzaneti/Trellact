@@ -113,6 +113,20 @@ function dbSetup(){
             REFERENCES Users(user_id)
     )`
 
+    const queryComments = `CREATE TABLE IF NOT EXISTS comments(
+        comment_id INT AUTO_INCREMENT PRIMARY KEY,
+        card_id INT NOT NULL,
+        user_id INT NOT NULL,
+        content VARCHAR(5000) NOT NULL,
+        post_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        edited TINYINT(1),
+
+        FOREIGN KEY(card_id)
+            REFERENCES Cards(card_id),
+        FOREIGN KEY(user_id)
+            REFERENCES Users(user_id)
+    )`
+
     const createUserQuery = `INSERT IGNORE INTO Users(first_name, last_name, login, password) 
                             VALUES("Marshall", "Matters", "eminem_123", "loseyourself")`
 
@@ -128,6 +142,7 @@ function dbSetup(){
     runQuery(queryBoardMembers, 'board_members')
     runQuery(createUserQuery, 'user created')
     runQuery(createBoardQuery, 'board created')
+    runQuery(queryComments, 'comments created')
     
     return
 
