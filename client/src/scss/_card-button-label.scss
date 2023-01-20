@@ -1,5 +1,11 @@
 .label{
 
+    &-row{
+        display: flex;
+        flex-direction: row;
+        width: 100%;    
+    }   
+
     &-color{
         display: flex;
         flex-direction: row;
@@ -12,8 +18,36 @@
         margin-bottom: 4px;
 
         cursor: pointer;
-    }
 
+        &-edit-caption{
+            background-image: url('../assets/icons/edit.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        &-edit-caption, &-cancel-caption{
+            margin-left: 3px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            align-self: center;
+
+            &:hover{
+                background-color: #c9c9c9;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+        }
+
+        &>span:first-of-type{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+    
     &-active{
         background-image: url('../assets/icons/check.svg');
         background-repeat: no-repeat;
@@ -21,6 +55,14 @@
         width: 20px;
         height: 20px;
         margin-left: auto;
+    }
+
+    &-caption-input{
+        width: 100%;
+        background-color: rgba($color: #fff, $alpha: 0.3);
+        border: none;
+        border-radius: 5px;
+        color: #fff;
     }
     
     &-red{

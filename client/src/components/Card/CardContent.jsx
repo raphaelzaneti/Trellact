@@ -1,4 +1,5 @@
-import React, {useContext} from 'react'
+/* eslint-disable import/no-anonymous-default-export */
+import React from 'react'
 import CardDescription from './CardDescription/CardDescription'
 import '../../css/style.css'
 import CardButtons from './CardButtons/CardButtons'

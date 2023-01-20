@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useState } from "react"
 import axios from "axios";
 
@@ -11,6 +12,7 @@ export default props => {
         props.activeButton === 'labels' ? props.setActiveButton(null) : props.setActiveButton('labels')
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     function getCardLabels() {
         axios.get('http://localhost:3001/card/get-labels', { params: { card_id: props.cardId } })
             .then(res => res.data)
@@ -27,14 +29,13 @@ export default props => {
         const labelId = isActive ? e.target.getAttribute('label_id') : null
         
         axios.post('http://localhost:3001/labels/set-labels', {params: {is_active: isActive, label_id: labelId, 
-            card_id: props.cardId, label_color: labelColor, label_caption: labelCaption}}
+            card_id: props.cardId, label_color: labelColor, label_caption: labelCaption, action: 'toggle'}}
         )
             .then(res => res.data)
             .then(data => setUpdateLabels(!updateLabels))
-
     }
 
-    useEffect(() => getCardLabels(), [updateLabels])
+    useEffect(() => getCardLabels(), [getCardLabels, updateLabels])
 
     return (
         <>
@@ -58,6 +59,7 @@ export default props => {
                                             labelCaption = label.label_caption
                                             labelIsActive = true
                                         }
+                                        return null
                                     })
                                 }
 
