@@ -12,6 +12,19 @@ function PageRouter() {
   const {boards, setBoards, boardId, setBoardId} = useBoards()
   const {user, setUser} = useUser()
 
+  async function getAllBoards() {
+    let generatedBoards = []
+
+    await axios.get('http://localhost:3001/boards/all', { params: { user_id: 1 } })
+        .then(res => {
+            res.data.map(e => generatedBoards.push(e))
+        })
+
+    await setBoards(generatedBoards)
+}
+
+useEffect(getAllBoards, [])
+
   // Here is a mock user, but in future, it may include the axios call to set the active user, once the login is successful
   // Probably this call will be made in the login component
 
@@ -22,16 +35,18 @@ function PageRouter() {
     login: 'eminem_123'
   }), [])
 
+  console.log('router', boards)
+
   return (
       <Router>
         <Header />
         <Routes>
+          <Route exact path="/" element={<Workspace />} />
           {
             boards.map(e => {
                 return <Route path={`/board/${e.board_id}`} element={<BoardRouter board_id={e.board_id} board_name={e.board_name} />} />
             })
           }
-          <Route path="/" element={<Workspace />} />
           <Route path={`/boards/`} element={<BoardRouter />} />
         </Routes>
       </Router>
