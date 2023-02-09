@@ -30,6 +30,11 @@
         font-size: 2rem;
         transform: translateY(-0.2rem);
         opacity: 60%;
+
+        &:hover{
+            background-color: inherit;
+            color: inherit
+        }
     }
 
     &-members-area{

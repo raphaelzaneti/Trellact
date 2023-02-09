@@ -134,7 +134,6 @@ module.exports = class ListsController {
             if (err) {
                 console.log(err)
             } else {
-                console.log(`Got all lists from board ${board}`)
                 
                 const dbCheck = await data.map(e => {
                     return { position: e.position, list_id: e.list_id, list_name: e.list_name }

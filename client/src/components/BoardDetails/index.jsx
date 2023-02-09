@@ -3,6 +3,7 @@ import '../../css/style.css'
 import BoardMembers from '../BoardMembers/BoardMembers'
 import BoardNameInput from '../BoardNameInput/BoardNameInput'
 import BoardSettingsMenu from '../BoardSettingsMenu/BoardSettingsMenu'
+import BoardTags from '../BoardTags/BoardTags'
 import FavoriteStars from '../FavoriteStars/FavoriteStars'
 import ThemeMenu from '../ThemeMenu/ThemeMenu'
 
@@ -37,13 +38,16 @@ export default props => {
             <span type="button" id="board__details-workspace" className="board__details-item board__details-access">
                 Public/private
             </span>
-            <div className='board__details-item board__details-separator'>
-                |
-            </div>
+
             <BoardMembers />
             <span type="button" id="board__details-workspace" className="board__details-item board__details-invite">
                 Invite
             </span>
+
+            <div className='board__details-item board__details-separator'>
+                |
+            </div>
+            <BoardTags />
             <ThemeMenu />
             <BoardSettingsMenu />
         </div>

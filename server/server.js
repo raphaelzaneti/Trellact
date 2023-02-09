@@ -12,6 +12,7 @@ const boardsRoutes = require('./routes/boardsRoutes')
 const userRoutes = require('./routes/userRoutes')
 const labelRoutes = require('./routes/labelsRoutes')
 const commentRoutes = require('./routes/commentRoutes')
+const tagsRoutes = require('./routes/tagsRoutes')
 
 app.use('/lists', listRoutes)
 app.use('/card', cardRoutes)
@@ -19,6 +20,7 @@ app.use('/boards', boardsRoutes)
 app.use('/user', userRoutes)
 app.use('/labels', labelRoutes)
 app.use('/comment', commentRoutes)
+app.use('/tags', tagsRoutes)
 
 app.get('/test', (req, res) =>{
     console.log('conected')

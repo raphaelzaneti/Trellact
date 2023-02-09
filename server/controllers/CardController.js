@@ -52,12 +52,10 @@ module.exports = class CardController {
             if (err) {
                 console.log(err)
             } else {
-                console.log(`Got all cards from list ${listId}`)
-
+                
                 const dbCheck = await data.map(e => {
                     return { card_id: e.card_id, card_name: e.card_name, card_position: e.card_position }
                 })
-                console.log(dbCheck)
                 res.send(dbCheck)
             }
         })

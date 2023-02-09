@@ -18,10 +18,6 @@ export default props => {
         setActiveInput(false)
     }
 
-
-
-    console.log(activeInput)
-
     return (
         <>
             <article id={currentCardId}>
