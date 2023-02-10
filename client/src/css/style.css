@@ -194,6 +194,29 @@
   background-color: rgba(255, 255, 255, 0.7);
   color: #000;
 }
+.board__tags-input {
+  border: none;
+  border-radius: 5px;
+}
+.board__tags-input-area {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+.board__tags-confirm {
+  transform: scale(-1, 1) rotate(325deg);
+  background-color: #007710;
+}
+.board__tags-confirm:hover {
+  transform: scale(-1, 1) rotate(325deg);
+  background-color: #219c31;
+}
+.board__tags-cancel {
+  background-color: #cf4242;
+}
+.board__tags-cancel:hover {
+  background-color: #f32525;
+}
 
 .header {
   background-color: var(--board-header-bg-color-variable);

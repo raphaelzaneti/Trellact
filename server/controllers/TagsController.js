@@ -21,4 +21,32 @@ module.exports = class TagsController {
         })
 
     }
+
+    static async createNewTag(req, res){
+        const caption = req.body.data.tag_caption
+        const boardId = req.body.data.board_id
+        const query = `INSERT INTO tags(tag_caption) VALUES ("${caption}")`
+
+        await conn.query(query, async (err, data) => {
+            if (err) {
+                console.log(err)
+                if(err.code === "ER_DUP_ENTRY"){
+                    res.send({success: false, message: "This tag already exists"})
+                }
+            } else {
+                const newTagId = data.insertId
+                const queryIntermediaryTable = `INSERT INTO boards_tags(board_id, tag_id) values (${boardId}, ${newTagId});`
+                await conn.query(queryIntermediaryTable, async (err, data) => {
+                    if (err) {
+                        console.log(err)
+                        res.send({success: false, message: "Error when inserting tag"})
+                    } else {
+                        res.send({success: true, tag_id: newTagId, message: 'Tag inserted'})
+                    }
+                })
+            }
+        })
+    }
+
+
 }
