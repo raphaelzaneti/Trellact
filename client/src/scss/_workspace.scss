@@ -8,7 +8,6 @@
         padding-top: 30px;
         padding-left: 60px;
         background-color: var.$workspace-main-bg-color;
-        height: 100vh;
         color: var.$workspace-main-text-color;
     }
 
@@ -150,5 +149,27 @@
             text-decoration: none;
         }
 
+    }
+
+    &__tag{
+        &-area{
+            margin-bottom: 10px;
+        }
+
+        &-triangle{ 
+            display: inline-block;
+            vertical-align: middle;
+            transition: transform 0.5s;
+            & svg{
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+            }
+
+            &-active{
+                transform: rotate(90deg);
+                transition: transform 0.5s;
+            }
+        }
     }
 }

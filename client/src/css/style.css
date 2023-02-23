@@ -34,7 +34,6 @@
 }
 .board__container {
   margin-left: 0.6rem;
-  height: 100vh;
 }
 
 .board__details {
@@ -1460,7 +1459,6 @@ svg {
   padding-top: 30px;
   padding-left: 60px;
   background-color: #FAFBFC;
-  height: 100vh;
   color: #000;
 }
 .workspace__navbar {
@@ -1571,6 +1569,23 @@ svg {
 }
 .workspace__card-board-link {
   text-decoration: none;
+}
+.workspace__tag-area {
+  margin-bottom: 10px;
+}
+.workspace__tag-triangle {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.5s;
+}
+.workspace__tag-triangle svg {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+.workspace__tag-triangle-active {
+  transform: rotate(90deg);
+  transition: transform 0.5s;
 }
 
 body {

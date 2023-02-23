@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import axios from "axios";
 import { useBoards } from "../../hooks/useBoards/useBoards";
 import WorkspaceBoardCard from "./WorkspaceBoardCard";
+import WorkspaceTags from "../WorkspaceTags/WorkspaceTags";
 
 
 export default props => {
@@ -64,6 +65,8 @@ export default props => {
                     </div>
                 </div>
             </div>
+
+            <WorkspaceTags />
         </section>
     )
 }

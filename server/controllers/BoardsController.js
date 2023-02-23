@@ -13,12 +13,12 @@ module.exports = class BoardsController {
             if (err) {
                 console.log(err)
             } else {
-                console.log(`Got all boards from user ${userId}`)
+                //console.log(`Got all boards from user ${userId}`)
 
                 const dbCheck = await data.map(e => {
                     return { board_id: e.board_id, board_name: e.board_name }
                 })
-                console.log(dbCheck)
+                //console.log(dbCheck)
                 res.send(dbCheck)
             }
         })
